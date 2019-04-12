@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/SampleScene.unity
+- path: Assets/Scenes/Spirite Liberator.unity
   isLoaded: 1
   isActive: 1
