@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameManager gameManager;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
 }

@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Spirite Liberator.unity
-    guid: 3b333a7bfa07a9c45bf8e28a0ff02ba0
+    path: Assets/Scenes/Battle.unity
+    guid: 16cb799b6cab6db42b3152a411dc59fe
   m_configObjects: {}
