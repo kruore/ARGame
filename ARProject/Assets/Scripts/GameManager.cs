@@ -6,8 +6,17 @@ public class GameManager : Singleton<GameManager>
 {
     public static GameManager gameManager;
 
-    enum PlayableCharacterelement {None, Stone,Grass,Tree};
+    enum PlayableCharacterelement {None, Stone,Grass,Wood};
     PlayableCharacterelement playableCharacterelement = PlayableCharacterelement.None;
+    public GameObject FadePanel;
+
+    public void Awake()
+    {
+        FadePanel = GameObject.Find("UI Root/Panel01/FadePanel");
+        FadePanel.SetActive(false);
+
+    }
+
     public void SelectCharacter()
     {
 
@@ -22,7 +31,7 @@ public class GameManager : Singleton<GameManager>
             case PlayableCharacterelement.Grass:
                 Debug.Log("풀을 골랐습니다.");
                 break;
-            case PlayableCharacterelement.Tree:
+            case PlayableCharacterelement.Wood:
                 Debug.Log("나무을 골랐습니다.");
                 break;
             default:
@@ -41,7 +50,7 @@ public class GameManager : Singleton<GameManager>
     }
     public void SelectedTree()
     {
-        playableCharacterelement = PlayableCharacterelement.Tree;
+        playableCharacterelement = PlayableCharacterelement.Wood;
         SelectCharacter();
     }
     public void SelectedFinal()
@@ -53,7 +62,9 @@ public class GameManager : Singleton<GameManager>
         if (playableCharacterelement!=0)
         {
             Debug.Log("해당 정령을 추가합니다 : " + playableCharacterelement);
-                //TODO: 해당 기능 추가할 것(DataBase)
+            FadePanel.SetActive(true);
+            FadePanel.GetComponent<TweenAlpha>().enabled = true;
+            //TODO: 해당 기능 추가할 것(DataBase)
         }
     }
 }

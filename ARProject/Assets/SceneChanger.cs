@@ -32,4 +32,10 @@ public class SceneChanger : MonoBehaviour
         scene_name = "02";
         LateLoadScene();
     }
+
+    public void Goto03()
+    {
+        scene_name = "03";
+        LateLoadScene();
+    }
 }
