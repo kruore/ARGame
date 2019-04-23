@@ -26,7 +26,7 @@ public class touchevent : MonoBehaviour
                 }
                 else if (PlayerTouch.phase == TouchPhase.Moved)
                 {
-                        cameraaixs.transform.Rotate(new Vector3(0, (touchedPos.x-PlayerTouch.position.x)*0.5f,0));
+                        cameraaixs.transform.Rotate(new Vector3(0, (touchedPos.x-PlayerTouch.position.x)*0.25f,0));
                     touchedPos = PlayerTouch.position;
                 }
                 else if(PlayerTouch.phase == TouchPhase.Ended)

@@ -283,3 +283,5 @@ D:\TabTabCreate\ARGame\ARProject\obj\Debug\Assembly-CSharp.csproj.CoreCompileInp
 D:\TabTabCreate\ARGame\ARProject\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\TabTabCreate\ARGame\ARProject\obj\Debug\Assembly-CSharp.dll
 D:\TabTabCreate\ARGame\ARProject\obj\Debug\Assembly-CSharp.pdb
+D:\TabTabCreate\ARGame\ARProject\Temp\bin\Debug\Mono.Data.Sqlite.dll
+D:\TabTabCreate\ARGame\ARProject\Temp\bin\Debug\Mono.Data.SqliteClient.dll

@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Android;
+using UnityEngine.Networking;
+using System;
+
 public class Google_Maps : Singleton<Google_Maps>
 {
-    public SpriteRenderer img;
+
     string url = "";
     public double lat = 37.713364, lon = 126.890129;
     LocationInfo li;
     public string strBaseURL = "https://maps.googleapis.com/maps/api/staticmap?center=";
-    public int zoom = 19;
+    public int zoom = 15;
     public int mapWidth = 640;
     public int mapHeight = 640;
     public enum mapType { roadmap, satellite, hybrid, terrain };
@@ -18,7 +21,11 @@ public class Google_Maps : Singleton<Google_Maps>
     public int scale = 2;
     public string strPath = "weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R";
     public string GoogleAPIKey = "AIzaSyBPENHUkpJHP24GDn98EaqW8qkZeO86pM0";
-    public IEnumerator Mapupdate()
+    public UILabel latitude;
+    public UILabel longitude;
+    public GameObject player;
+    
+    public IEnumerator Mapsupdate()
     {
         while (true)
         {
@@ -30,21 +37,32 @@ public class Google_Maps : Singleton<Google_Maps>
                 + "&maptype=" + mapselected
                 + "&key=" + GoogleAPIKey;
             Debug.Log(url);
-            WWW www = new WWW(url);
-
-            yield return www;
-            Rect rect = new Rect(0, 0, www.texture.width, www.texture.height);
-
-            img.sprite = Sprite.Create(www.texture, rect, new Vector2(0.5f, 0.5f));
+            using (UnityWebRequest www = UnityWebRequestTexture.GetTexture(url))
+            {
+                yield return www.SendWebRequest();
+                Rect rect = new Rect(0, 0, ((DownloadHandlerTexture)www.downloadHandler).texture.width, ((DownloadHandlerTexture)www.downloadHandler).texture.height);
+                SpriteRenderer img = gameObject.GetComponent<SpriteRenderer>();
+                img.sprite = Sprite.Create(((DownloadHandlerTexture)www.downloadHandler).texture, rect, new Vector2(0.5f, 0.5f));
+            }
+            latitude.text = GPS.Instance.Latitude.ToString();
+            longitude.text = GPS.Instance.Longitude.ToString();
             //img.sprite = www.texture;
             //img.SetNativeSize();
             yield return new WaitForSecondsRealtime(3);
         }
     }
+    private IEnumerator StartcompassServiece()
+    {
+        while (true)
+        {
+            player.transform.rotation = Quaternion.Euler(0, Input.compass.trueHeading, 0);
+            yield return new WaitForSecondsRealtime(0.5f);
+        }
+    }
     //Start is called before the first frame update
     void Start()
     {
-        img = gameObject.GetComponent<SpriteRenderer>();
-        StartCoroutine(Mapupdate());
+        StartCoroutine(Mapsupdate());
+        StartCoroutine(StartcompassServiece());
     }
 }
