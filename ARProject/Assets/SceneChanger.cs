@@ -38,4 +38,29 @@ public class SceneChanger : MonoBehaviour
         scene_name = "03";
         LateLoadScene();
     }
+    public void GotoAdventure()
+    {
+        scene_name = "Adventure";
+        LateLoadScene();
+    }
+    public void GotoBattle()
+    {
+        scene_name = "Battle";
+        LateLoadScene();
+    }
+    public void GotoCard()
+    {
+        scene_name = "Card";
+        LateLoadScene();
+    }
+    public void GotoBag()
+    {
+        scene_name = "Bag";
+        LateLoadScene();
+    }
+    public void GotoShop()
+    {
+        scene_name = "Shop";
+        LateLoadScene();
+    }
 }

@@ -6,15 +6,16 @@ public class GameManager : Singleton<GameManager>
 {
     public static GameManager gameManager;
 
-    enum PlayableCharacterelement {None, Stone,Grass,Wood};
-    PlayableCharacterelement playableCharacterelement = PlayableCharacterelement.None;
+    public Element playableCharacterelement = Element.None;
     public GameObject FadePanel;
+    public GameObject FinaldecisionPanel;
+    int num;
 
     public void Awake()
     {
-        FadePanel = GameObject.Find("UI Root/Panel01/FadePanel");
+        FadePanel = GameObject.Find("UI Root/Panel01");
+        FinaldecisionPanel = GameObject.Find("UI Root/Panel02");
         FadePanel.SetActive(false);
-
     }
 
     public void SelectCharacter()
@@ -22,16 +23,17 @@ public class GameManager : Singleton<GameManager>
 
      switch(playableCharacterelement)
         {
-            case PlayableCharacterelement.None:
+            case Element.None:
                 Debug.Log("아무것도 결정되지 않았습니다.");
                 break;
-            case PlayableCharacterelement.Stone:
+            case Element.Stone:
                 Debug.Log("돌을 골랐습니다.");
                 break;
-            case PlayableCharacterelement.Grass:
+            case Element.Grass:
                 Debug.Log("풀을 골랐습니다.");
+                
                 break;
-            case PlayableCharacterelement.Wood:
+            case Element.Wood:
                 Debug.Log("나무을 골랐습니다.");
                 break;
             default:
@@ -40,17 +42,22 @@ public class GameManager : Singleton<GameManager>
     }
    public void SelectedStone()
     {
-        playableCharacterelement = PlayableCharacterelement.Stone;
+        playableCharacterelement = Element.Stone;
+        num = 111;
         SelectCharacter();
     }
     public void SelectedGrass()
     {
-        playableCharacterelement = PlayableCharacterelement.Grass;
+        
+        playableCharacterelement = Element.Grass;
+        num = 109;
         SelectCharacter();
     }
     public void SelectedTree()
     {
-        playableCharacterelement = PlayableCharacterelement.Wood;
+        playableCharacterelement = Element.Wood;
+        num = 110;
+
         SelectCharacter();
     }
     public void SelectedFinal()
@@ -62,8 +69,10 @@ public class GameManager : Singleton<GameManager>
         if (playableCharacterelement!=0)
         {
             Debug.Log("해당 정령을 추가합니다 : " + playableCharacterelement);
+            GameDataBase.Instance.InventoryInsert(num);
             FadePanel.SetActive(true);
-            FadePanel.GetComponent<TweenAlpha>().enabled = true;
+            FinaldecisionPanel.SetActive(false);
+            //FadePanel.GetComponent<TweenAlpha>().enabled = true;
             //TODO: 해당 기능 추가할 것(DataBase)
         }
     }
