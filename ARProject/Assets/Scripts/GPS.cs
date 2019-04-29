@@ -11,29 +11,23 @@ public class GPS : Singleton<GPS>
     private Gyroscope gyro;
 
     //동서는 longitude 남북은 latitude 
-    private float west = 131.872799f, east = 124.609875f, south = 33.112479f, north = 38.617382f;
-    private string currenttree="";
-    string nowposition;
-    public string test;
-    public string sCurrenttree
+    private double west = 131.872799, east = 124.609875, south = 33.112479, north = 38.617382;
+    private string currenttree;
+    public string Currenttree
     {
         set
         {
-            if (currenttree != value)
+            if (this.currenttree != value)
             {
                 //현재 트리에 맞는 장소 리스트 재조정
-                currenttree = value;
-               //GameDataBase.Instance.DS_GpsplaceFinding(value);
-                
-
+                this.currenttree = value;
             }
         }
         get { return currenttree; }
     }
-
     [SerializeField]
-    private float latitude;
-    public float Latitude
+    private double latitude;
+    public double Latitude
     {
         set
         {
@@ -45,8 +39,8 @@ public class GPS : Singleton<GPS>
         get { return latitude; }
     }
     [SerializeField]
-    private float longitude;
-    public float Longitude
+    private double longitude;
+    public double Longitude
     {
         set
         {
@@ -65,7 +59,10 @@ public class GPS : Singleton<GPS>
         StartCoroutine(StartLocationServiece());
         gyro = Input.gyro;
         gyro.enabled = true;
-        sCurrenttree = "";
+        latitude = 37.713364;
+        longitude = 126.890129;
+        currenttree = "";
+
     }
     private IEnumerator Permissioncheck()
     {
@@ -92,38 +89,32 @@ public class GPS : Singleton<GPS>
 
             if (!Input.location.isEnabledByUser)
             {
-                test = "enablefail";
                 yield break;
             }
             Input.location.Start();
             while (Input.location.status == LocationServiceStatus.Initializing)
             {
-                test = "Initializfail";
                 yield return new WaitForSeconds(2);
             }
             if (Input.location.status == LocationServiceStatus.Failed)
             {
-                test = "fail";
                 yield break;
             }
             Latitude = Input.location.lastData.latitude;
             Longitude = Input.location.lastData.longitude;
-            nowposition = string.Empty;
+            Debug.Log("aa");
             Locationquadtree(west, east, north, south);
-            sCurrenttree = nowposition;
-            Debug.Log(sCurrenttree);
             Input.location.Stop();
-            test = "good";
             yield return new WaitForSecondsRealtime(3);
         }
     }
-    private bool Locationquadtree(float dwest, float deast, float dnorth, float dsouth)
+    private bool Locationquadtree(double dwest, double deast, double dnorth, double dsouth)
     {
         bool checklon;
         int position;
-        float dlon, dlat;
-        dlon = (float)(dwest + deast) / 2;
-        dlat = (float)(dnorth + dsouth) / 2;
+        double dlon, dlat;
+        dlon = (dwest + deast) / 2;
+        dlat = (dnorth + dsouth) / 2;
         if (dlon < Longitude)
         {
             checklon = true;
@@ -158,34 +149,34 @@ public class GPS : Singleton<GPS>
                 position = 4;
             }
         }
-        nowposition += position;
-        if (nowposition.Length < 8)
+        currenttree += position;
+        if (currenttree.Length < 8)
         {
             switch (position)
             {
                 //서북
                 case 1:
+                    Debug.Log(dwest + "," + dlon + "," + dnorth + "," + dlat);
                     Locationquadtree(dwest, dlon, dnorth, dlat);
                     break;
                 //동북
                 case 2:
+                    Debug.Log(dlon + "," + deast + "," + dnorth + "," + dlat);
                     Locationquadtree(dlon, deast, dnorth, dlat);
                     break;
                 //서남
                 case 3:
+                    Debug.Log(dwest + "," + dlon + "," + dlat + "," + dsouth);
                     Locationquadtree(dwest, dlon, dlat, dsouth);
                     break;
                 //동남
                 case 4:
+                    Debug.Log(dlon + "," + deast + "," + dlat + "," + dsouth);
                     Locationquadtree(dlon, deast, dlat, dsouth);
                     break;
-                default:
-                    break;
             }
-            
-            
         }
-        else if (sCurrenttree.Length == 8)
+        else if (currenttree.Length == 8)
         {
             return true;
         }
@@ -194,9 +185,5 @@ public class GPS : Singleton<GPS>
             return false;
         }
         return false;
-    }
-    void Quadinitobject(string quadtree)
-    {
-
     }
 }
