@@ -1,14 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
-public class BattleManager : NetworkBehaviour
+public class BattleManager : MonoBehaviour
 {
-    public enum Turn {StartGame,Drow,Battle,End};
+    public enum Turn { StartGame, Drow, Battle, End };
     public Turn turn = Turn.StartGame;
     // Start is called before the first frame update
-    [Command]
     public void CmdDrowCard()
     {
         switch (turn)
@@ -28,15 +26,10 @@ public class BattleManager : NetworkBehaviour
         }
     }
 
-    [Command]
     public void CmdTurnEnd()
     {
-        if(!isLocalPlayer)
-        {
-            return;
-        }
         turn++;
-        if(turn == Turn.End)
+        if (turn == Turn.End)
         {
             turn = Turn.StartGame;
         }

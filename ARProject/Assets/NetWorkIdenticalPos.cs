@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class NetWorkIdenticalPos : NetworkBehaviour
+public class NetWorkIdenticalPos : NetworkBehaviour 
 {
     // Start is called before the first frame update
     void Start()

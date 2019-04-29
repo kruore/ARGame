@@ -46,8 +46,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 89d5a921320365347a69f31b923718ea, type: 2}
   mSprites:
   - name: '{0}'
-    x: 622
-    y: 824
+    x: 138
+    y: 13
     width: 24
     height: 23
     borderLeft: 0
@@ -59,8 +59,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: '{1}'
-    x: 671
-    y: 824
+    x: 184
+    y: 13
     width: 20
     height: 23
     borderLeft: 0
@@ -72,8 +72,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: '{2}'
-    x: 692
-    y: 824
+    x: 205
+    y: 13
     width: 20
     height: 23
     borderLeft: 0
@@ -85,8 +85,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 0
   - name: '{3}'
-    x: 647
-    y: 823
+    x: 114
+    y: 12
     width: 23
     height: 24
     borderLeft: 0
@@ -98,8 +98,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: '{4}'
-    x: 713
-    y: 824
+    x: 163
+    y: 13
     width: 20
     height: 23
     borderLeft: 0
@@ -110,9 +110,35 @@ MonoBehaviour:
     paddingRight: 2
     paddingTop: 1
     paddingBottom: 0
+  - name: C_108634010
+    x: 0
+    y: 402
+    width: 492
+    height: 622
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 44
+    paddingTop: 24
+    paddingBottom: 52
+  - name: Card
+    x: 493
+    y: 503
+    width: 174
+    height: 246
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 3
+    paddingTop: 2
+    paddingBottom: 2
   - name: fasong_down
-    x: 799
-    y: 869
+    x: 668
+    y: 698
     width: 66
     height: 51
     borderLeft: 0
@@ -124,8 +150,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: fasong_up
-    x: 799
-    y: 817
+    x: 177
+    y: 136
     width: 66
     height: 51
     borderLeft: 0
@@ -138,7 +164,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: gamelabby_di2
     x: 0
-    y: 811
+    y: 188
     width: 621
     height: 213
     borderLeft: 30
@@ -150,8 +176,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: gamelabby_shurukuang
-    x: 799
-    y: 921
+    x: 114
+    y: 37
     width: 125
     height: 47
     borderLeft: 10
@@ -163,8 +189,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: jingyantiao
-    x: 736
-    y: 908
+    x: 493
+    y: 409
     width: 28
     height: 13
     borderLeft: 0
@@ -176,8 +202,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: jingyantiaodi
-    x: 866
-    y: 897
+    x: 493
+    y: 423
     width: 128
     height: 23
     borderLeft: 0
@@ -189,8 +215,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: mail_xinxitiao
-    x: 799
-    y: 969
+    x: 493
+    y: 447
     width: 181
     height: 55
     borderLeft: 10
@@ -202,8 +228,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: shoujianxiangdi_zhong
-    x: 622
-    y: 848
+    x: 0
+    y: 11
     width: 113
     height: 73
     borderLeft: 10
@@ -215,14 +241,27 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: xiexinkuang
-    x: 622
-    y: 922
+    x: 0
+    y: 85
     width: 176
     height: 102
     borderLeft: 10
     borderRight: 10
     borderTop: 10
     borderBottom: 10
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: "\uB2E4\uC6B4\uB85C\uB4DC"
+    x: 493
+    y: 750
+    width: 184
+    height: 274
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0

@@ -13,7 +13,6 @@ public class ExampleDragDropItem : UIDragDropItem
 	/// </summary>
 
 	public GameObject prefab;
-
 	/// <summary>
 	/// Drop a 3D game object onto the surface.
 	/// </summary>
@@ -32,16 +31,16 @@ public class ExampleDragDropItem : UIDragDropItem
 				Transform trans = child.transform;
 				trans.position = UICamera.lastWorldPosition;
 
-				if (dds.rotatePlacedObject)
+                if (dds.rotatePlacedObject)
 				{
 					trans.rotation = Quaternion.LookRotation(UICamera.lastHit.normal) * Quaternion.Euler(90f, 0f, 0f);
-				}
-				
-				// Destroy this icon as it's no longer needed
-				NGUITools.Destroy(gameObject);
-				return;
+                }
+                // Destroy this icon as it's no longer needed
+                NGUITools.Destroy(gameObject);
+                
+                return;
 			}
 		}
 		base.OnDragDropRelease(surface);
-	}
+    }
 }

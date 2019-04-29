@@ -5,8 +5,10 @@ using UnityEngine;
 public class UIMangager : MonoBehaviour
 {
     public GameObject inputBox;
+    public GameObject cards;
     UIInput UIInput;
     string text;
+    Element element;
 
   
     public void GetMessage()
@@ -23,6 +25,11 @@ public class UIMangager : MonoBehaviour
 
         PlayerPrefs.GetString("name",text);
         PlayerPrefs.Save();
+    }
+    
+    public void CreateCard()
+    {
+        Instantiate(cards);
     }
 
 
