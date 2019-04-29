@@ -10,8 +10,12 @@ public class GameDataBase : Singleton<GameDataBase>
 {
     public List<GpsData> places = new List<GpsData>();
     public List<GpsData> inventory_places = new List<GpsData>();
+    public List<GpsData> currentquadplaces = new List<GpsData>();
     public List<Item> cards = new List<Item>();
     string conn = string.Empty;
+    public string mytest;
+
+
     public void Awake()
     {
         if (Application.platform == RuntimePlatform.Android)
@@ -22,29 +26,72 @@ public class GameDataBase : Singleton<GameDataBase>
         {
             conn = "URI=file:" + Application.dataPath + "/StreamingAssets/testDB.sqlite";
         }
+
         Ds_CopyDB();
+        TestConnection();
         DS_GpsplaceSetting();
         CardSetting();
-        Ds_InventoryInsert(0);
+        DS_GpsplaceFinding("1");
+
     }
-    //사용플렛폼이 안드로이드 일경우에 일반적인 경로로 DB접근이 되지않아 DB를 복사하여 사용가능한 위치에 놓아준다.
+
+    public string TestConnection()
+    {
+        try
+        {
+            SqliteConnection con = new SqliteConnection(conn);
+            SqliteCommand cmd = new SqliteCommand();
+            cmd.Connection = con;
+            con.Open();
+
+            if (con.State == ConnectionState.Open)
+            {
+                mytest = "OK";
+            }
+            else
+            {
+                mytest = "ERR";
+            }
+
+            con.Close();
+        }
+        catch (Exception ex)
+        {
+            mytest = ex.ToString();
+        }
+        return mytest;
+    }
+
+
+    
+    //사용플렛폼이 안드로이드 일경우에 일반적인 경로로 DB접근이 되지않아(permission) DB를 복사하여 사용가능한 위치에 놓아준다.
     void Ds_CopyDB()
     {
-        if(Application.platform==RuntimePlatform.Android)
+        string filepath = string.Empty;
+        if (Application.platform == RuntimePlatform.Android)
         {
-            conn = Application.persistentDataPath + "/testDB.sqlite";
-            if(!File.Exists(conn))
+            filepath = Application.persistentDataPath + "/testDB.sqlite";
+            if (!File.Exists(filepath))
             {
-                WWW loadDB = new WWW("jar:file://" + Application.dataPath + "/assets/testDB.sqlite");
+                string path="jar:file://" + Application.dataPath + "/assets/testDB.sqlite";
+                WWW loadDB = new WWW(path);
                 loadDB.bytesDownloaded.ToString();
-                while (!loadDB.isDone)
-                {
-                    File.WriteAllBytes(conn, loadDB.bytes);
-                }
+                while (!loadDB.isDone) { }
+                File.WriteAllBytes(filepath, loadDB.bytes);
+            }
+        }
+        else
+        {
+            filepath = Application.dataPath + "/testDB.sqlite";
+            if (!File.Exists(filepath))
+            {
+                File.Copy(Application.streamingAssetsPath + "/testDB.sqlite", filepath);
             }
         }
     }
-    //GpsplaceSetting
+
+
+//GpsplaceSetting
     public void DS_GpsplaceSetting()
     {
         IDbConnection dbconn;
@@ -127,8 +174,35 @@ public class GameDataBase : Singleton<GameDataBase>
         dbcmd = null;
         dbconn.Close();
         dbconn = null;
-    } 
+    }
+    public void DS_GpsplaceFinding(string quadtree)
+    {
+        IDbConnection dbconn;
+        dbconn = (IDbConnection)new SqliteConnection(conn);
+        dbconn.Open();
 
+        IDbCommand dbcmd = dbconn.CreateCommand();
+        string sqlQuery = "SELECT * FROM Gpsplace WHERE quad=\""+quadtree+"\"";
+        dbcmd.CommandText = sqlQuery;
+        IDataReader reader = dbcmd.ExecuteReader();
+        currentquadplaces.Clear();
+        while (reader.Read())
+        {
+            int Num = inventory_places.Count;
+            string Name = reader.GetString(1);
+            double Latitude = reader.GetDouble(2);
+            double Longitude = reader.GetDouble(3);
+            Element element = (Element)reader.GetInt32(4);
+            string quad = reader.GetString(5);
+            currentquadplaces.Add(new GpsData(Num, Name, Latitude, Longitude, element, quad));
+        }
+        reader.Close();
+        reader = null;
+        dbcmd.Dispose();
+        dbcmd = null;
+        dbconn.Close();
+        dbconn = null;
+    }
     //public void DS_DbSetting()
     //{
     //    {
