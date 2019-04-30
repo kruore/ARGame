@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Scenes/Spirite Liberator.unity
+  isLoaded: 1
+  isActive: 1
