@@ -51,5 +51,6 @@ public class CardForm : MonoBehaviour
             gameObject.transform.position = Currentpos;
             gameObject.transform.rotation = Quaternion.Euler(CurrentRot);
         }
+        gameObject.GetComponent<UISprite>().depth = 2;
     }
 }

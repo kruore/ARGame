@@ -21,7 +21,7 @@ public class GameManager : Singleton<GameManager>
     public void SelectCharacter()
     {
 
-     switch(playableCharacterelement)
+        switch (playableCharacterelement)
         {
             case Element.None:
                 Debug.Log("아무것도 결정되지 않았습니다.");
@@ -31,7 +31,7 @@ public class GameManager : Singleton<GameManager>
                 break;
             case Element.Grass:
                 Debug.Log("풀을 골랐습니다.");
-                
+
                 break;
             case Element.Wood:
                 Debug.Log("나무을 골랐습니다.");
@@ -40,7 +40,7 @@ public class GameManager : Singleton<GameManager>
                 return;
         }
     }
-   public void SelectedStone()
+    public void SelectedStone()
     {
         playableCharacterelement = Element.Stone;
         num = 111;
@@ -48,7 +48,7 @@ public class GameManager : Singleton<GameManager>
     }
     public void SelectedGrass()
     {
-        
+
         playableCharacterelement = Element.Grass;
         num = 109;
         SelectCharacter();
@@ -66,7 +66,7 @@ public class GameManager : Singleton<GameManager>
         {
             SelectCharacter();
         }
-        if (playableCharacterelement!=0)
+        if (playableCharacterelement != 0)
         {
             Debug.Log("해당 정령을 추가합니다 : " + playableCharacterelement);
             GameDataBase.Instance.InventoryInsert(num);
