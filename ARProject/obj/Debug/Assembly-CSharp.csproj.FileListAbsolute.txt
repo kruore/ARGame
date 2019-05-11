@@ -285,3 +285,7 @@ D:\TabTabCreate\ARGame\ARProject\Temp\bin\Debug\Mono.Data.Sqlite.dll
 D:\TabTabCreate\ARGame\ARProject\Temp\bin\Debug\Mono.Data.SqliteClient.dll
 D:\TabTabCreate\ARGame\ARProject\Temp\bin\Debug\UnityEngine.SpatialTrackingModule.dll
 D:\TabTabCreate\ARGame\ARProject\Temp\bin\Debug\UnityEngine.SpatialTrackingModule.xml
+D:\TabTabCreate\ARGame\ARProject\Temp\bin\Debug\I18N.MidEast.dll
+D:\TabTabCreate\ARGame\ARProject\Temp\bin\Debug\I18N.Other.dll
+D:\TabTabCreate\ARGame\ARProject\Temp\bin\Debug\I18N.Rare.dll
+D:\TabTabCreate\ARGame\ARProject\Temp\bin\Debug\I18N.West.dll

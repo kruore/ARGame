@@ -53,14 +53,14 @@ public class UIToggledComponents : MonoBehaviour
 			for (int i = 0; i < activate.Count; ++i)
 			{
 				MonoBehaviour comp = activate[i];
-				comp.enabled = UIToggle.current.value;
+                comp.gameObject.SetActive(UIToggle.current.value);
 			}
 
 			for (int i = 0; i < deactivate.Count; ++i)
 			{
 				MonoBehaviour comp = deactivate[i];
-				comp.enabled = !UIToggle.current.value;
-			}
+                comp.gameObject.SetActive(!UIToggle.current.value);
+            }
 		}
 	}
 }

@@ -445,6 +445,18 @@
     <Reference Include="Google.VersionHandlerImpl_v1.2.100.0">
       <HintPath>D:/TabTabCreate/ARGame/ARProject/Assets/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.100.0.dll</HintPath>
     </Reference>
+    <Reference Include="I18N.MidEast">
+      <HintPath>D:/TabTabCreate/ARGame/ARProject/Assets/Plugins/I18N.MidEast.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.Other">
+      <HintPath>D:/TabTabCreate/ARGame/ARProject/Assets/Plugins/I18N.Other.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.Rare">
+      <HintPath>D:/TabTabCreate/ARGame/ARProject/Assets/Plugins/I18N.Rare.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.West">
+      <HintPath>D:/TabTabCreate/ARGame/ARProject/Assets/Plugins/I18N.West.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Data.Sqlite">
       <HintPath>D:/TabTabCreate/ARGame/ARProject/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
     </Reference>

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Item
 {
 
-
+    public int cardInventoryNum;
     public int cardHp;
     public int cardCost;
     public int cardDamage;
@@ -13,9 +13,10 @@ public class Item
     public Element cardElement;
 
 
-    public Item(int num, int hp, int damage, string name, Element element)
+    public Item(int num,int cost, int hp, int damage, string name, Element element)
     {
-        cardCost = num;
+        cardInventoryNum=num;
+        cardCost = cost;
         cardHp = hp;
         cardDamage = damage;
         cardName = name;

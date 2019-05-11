@@ -418,15 +418,20 @@
     <Compile Include="Assets\Scripts\cameralook.cs" />
     <Compile Include="Assets\Scripts\GameDataBase.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Google_Maps.cs" />
     <Compile Include="Assets\Scripts\GPS.cs" />
     <Compile Include="Assets\Scripts\GpsData.cs" />
+    <Compile Include="Assets\Scripts\GPSTest.cs" />
+    <Compile Include="Assets\Scripts\GUITestScrollView.cs" />
+    <Compile Include="Assets\Scripts\IReuseCellData.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
+    <Compile Include="Assets\Scripts\ItemCellData.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
+    <Compile Include="Assets\Scripts\TestCell.cs" />
     <Compile Include="Assets\Scripts\touchevent.cs" />
-    <Compile Include="Assets\stringdbtest.cs" />
-    <Compile Include="Assets\testscript.cs" />
-    <Compile Include="Assets\testtext.cs" />
+    <Compile Include="Assets\Scripts\UIReuseDragScrollView.cs" />
+    <Compile Include="Assets\Scripts\UIReuseGrid.cs" />
+    <Compile Include="Assets\Scripts\UIReuseScrollView.cs" />
+    <Compile Include="Assets\Scripts\UIReuseScrollViewCell.cs" />
     <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
     <None Include="Assets\Optimize SDKohaku-Chanz\Shader\Unitychan_chara_eye.shader" />
     <None Include="Assets\NGUI\ReadMe - 2018.3.0.txt" />
@@ -710,6 +715,18 @@
     </Reference>
     <Reference Include="Google.Protobuf">
       <HintPath>D:/TabTabCreate/ARGame/ARProject/Assets/GoogleARCore/SDK/Plugins/Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.MidEast">
+      <HintPath>D:/TabTabCreate/ARGame/ARProject/Assets/Plugins/I18N.MidEast.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.Other">
+      <HintPath>D:/TabTabCreate/ARGame/ARProject/Assets/Plugins/I18N.Other.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.Rare">
+      <HintPath>D:/TabTabCreate/ARGame/ARProject/Assets/Plugins/I18N.Rare.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.West">
+      <HintPath>D:/TabTabCreate/ARGame/ARProject/Assets/Plugins/I18N.West.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Data.Sqlite">
       <HintPath>D:/TabTabCreate/ARGame/ARProject/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
