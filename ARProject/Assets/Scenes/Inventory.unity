@@ -216,6 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 104704380}
   - component: {fileID: 104704381}
+  - component: {fileID: 104704382}
   m_Layer: 8
   m_Name: DeckSlot3
   m_TagString: Untagged
@@ -300,6 +301,19 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 5, y: 5, z: 5, w: 5}
   mFixedAspect: 0
+--- !u!114 &104704382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104704379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f78b18d8ce3d94fb14b8e9cf40058a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotnumber: 3
 --- !u!1 &115212695
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +576,52 @@ Transform:
   - {fileID: 1354155074}
   m_Father: {fileID: 1294494747}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &395953885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 395953887}
+  - component: {fileID: 395953886}
+  m_Layer: 0
+  m_Name: DBcopy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &395953886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395953885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d3b4fd160129c34289969bac26b4134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cpcards_Deck: []
+  cpcards_Inventory: []
+  deckcost: 0
+--- !u!4 &395953887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395953885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.7054891, y: -0.21932088, z: -0.010012939}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &535262146
 GameObject:
@@ -972,7 +1032,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670575066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 385, y: 882, z: 0}
+  m_LocalPosition: {x: 384, y: 882, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1534808893}
@@ -992,8 +1052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activate: []
-  deactivate:
-  - {fileID: 1911057942}
+  deactivate: []
   target: {fileID: 0}
   inverse: 0
 --- !u!114 &670575069
@@ -1550,6 +1609,7 @@ GameObject:
   - component: {fileID: 846983819}
   - component: {fileID: 846983818}
   - component: {fileID: 846983817}
+  - component: {fileID: 846983820}
   m_Layer: 8
   m_Name: OrganizationCompleteButton
   m_TagString: Untagged
@@ -1647,8 +1707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activate: []
-  deactivate:
-  - {fileID: 1911057942}
+  deactivate: []
   target: {fileID: 0}
   inverse: 0
 --- !u!114 &846983818
@@ -1691,6 +1750,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 200, y: 200, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &846983820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846983814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 846983814}
+  hover: {r: 0.88235295, g: 0.78431374, b: 0.5882353, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 0
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick: []
 --- !u!1 &886643962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1888,6 +1973,7 @@ GameObject:
   m_Component:
   - component: {fileID: 907609550}
   - component: {fileID: 907609551}
+  - component: {fileID: 907609552}
   m_Layer: 8
   m_Name: DeckSlot1
   m_TagString: Untagged
@@ -1972,6 +2058,19 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 5, y: 5, z: 5, w: 5}
   mFixedAspect: 0
+--- !u!114 &907609552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907609549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f78b18d8ce3d94fb14b8e9cf40058a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotnumber: 1
 --- !u!1 &978421917
 GameObject:
   m_ObjectHideFlags: 0
@@ -2177,6 +2276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1073975302}
   - component: {fileID: 1073975303}
+  - component: {fileID: 1073975304}
   m_Layer: 8
   m_Name: DeckSlot0
   m_TagString: Untagged
@@ -2261,6 +2361,19 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 5, y: 5, z: 5, w: 5}
   mFixedAspect: 0
+--- !u!114 &1073975304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073975301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f78b18d8ce3d94fb14b8e9cf40058a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotnumber: 0
 --- !u!1 &1105731123
 GameObject:
   m_ObjectHideFlags: 0
@@ -2946,6 +3059,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1344340638}
   - component: {fileID: 1344340639}
+  - component: {fileID: 1344340640}
   m_Layer: 8
   m_Name: DeckSlot8
   m_TagString: Untagged
@@ -3030,6 +3144,19 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 5, y: 5, z: 5, w: 5}
   mFixedAspect: 0
+--- !u!114 &1344340640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344340637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f78b18d8ce3d94fb14b8e9cf40058a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotnumber: 8
 --- !u!1 &1354155073
 GameObject:
   m_ObjectHideFlags: 0
@@ -3335,6 +3462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1413330600}
   - component: {fileID: 1413330601}
+  - component: {fileID: 1413330602}
   m_Layer: 8
   m_Name: DeckSlot4
   m_TagString: Untagged
@@ -3419,6 +3547,19 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 5, y: 5, z: 5, w: 5}
   mFixedAspect: 0
+--- !u!114 &1413330602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413330599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f78b18d8ce3d94fb14b8e9cf40058a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotnumber: 4
 --- !u!1 &1428267830
 GameObject:
   m_ObjectHideFlags: 0
@@ -3532,6 +3673,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1486540653}
   - component: {fileID: 1486540654}
+  - component: {fileID: 1486540655}
   m_Layer: 8
   m_Name: DeckSlot5
   m_TagString: Untagged
@@ -3616,6 +3758,19 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 5, y: 5, z: 5, w: 5}
   mFixedAspect: 0
+--- !u!114 &1486540655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486540652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f78b18d8ce3d94fb14b8e9cf40058a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotnumber: 5
 --- !u!1 &1501852667
 GameObject:
   m_ObjectHideFlags: 0
@@ -4175,7 +4330,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671899541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1911057941}
@@ -4272,6 +4427,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1703427959}
   - component: {fileID: 1703427960}
+  - component: {fileID: 1703427961}
   m_Layer: 8
   m_Name: DeckSlot7
   m_TagString: Untagged
@@ -4356,6 +4512,19 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 5, y: 5, z: 5, w: 5}
   mFixedAspect: 0
+--- !u!114 &1703427961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703427958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f78b18d8ce3d94fb14b8e9cf40058a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotnumber: 7
 --- !u!1 &1818664502
 GameObject:
   m_ObjectHideFlags: 0
@@ -4383,7 +4552,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818664502}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -194, z: 0}
+  m_LocalPosition: {x: -3, y: -192, z: 0}
   m_LocalScale: {x: 0.9983999, y: 0.9983999, z: 0.9983999}
   m_Children:
   - {fileID: 742539664}
@@ -4990,6 +5159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1943183419}
   - component: {fileID: 1943183420}
+  - component: {fileID: 1943183421}
   m_Layer: 8
   m_Name: DeckSlot6
   m_TagString: Untagged
@@ -5074,6 +5244,19 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 5, y: 5, z: 5, w: 5}
   mFixedAspect: 0
+--- !u!114 &1943183421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943183418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f78b18d8ce3d94fb14b8e9cf40058a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotnumber: 6
 --- !u!1 &1973802262
 GameObject:
   m_ObjectHideFlags: 0
@@ -5204,7 +5387,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982723840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 194, z: 0}
+  m_LocalPosition: {x: -3, y: 196, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1271458557}
@@ -5319,6 +5502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activate:
   - {fileID: 1911057942}
+  - {fileID: 1587896885}
   deactivate: []
   target: {fileID: 0}
   inverse: 0
@@ -5343,11 +5527,7 @@ MonoBehaviour:
   startsActive: 0
   instantTween: 0
   optionCanBeNone: 0
-  onChange:
-  - mTarget: {fileID: 639068212}
-    mMethodName: InventoryToggle
-    mParameters: []
-    oneShot: 0
+  onChange: []
   checkSprite: {fileID: 0}
   checkAnimation: {fileID: 0}
   eventReceiver: {fileID: 0}
@@ -5363,6 +5543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2065815339}
   - component: {fileID: 2065815340}
+  - component: {fileID: 2065815341}
   m_Layer: 8
   m_Name: DeckSlot2
   m_TagString: Untagged
@@ -5447,6 +5628,19 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 5, y: 5, z: 5, w: 5}
   mFixedAspect: 0
+--- !u!114 &2065815341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065815338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f78b18d8ce3d94fb14b8e9cf40058a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotnumber: 2
 --- !u!1 &2143765744
 GameObject:
   m_ObjectHideFlags: 0
@@ -5457,6 +5651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2143765745}
   - component: {fileID: 2143765746}
+  - component: {fileID: 2143765747}
   m_Layer: 8
   m_Name: DeckSlot9
   m_TagString: Untagged
@@ -5541,3 +5736,16 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 5, y: 5, z: 5, w: 5}
   mFixedAspect: 0
+--- !u!114 &2143765747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143765744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f78b18d8ce3d94fb14b8e9cf40058a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotnumber: 9

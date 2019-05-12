@@ -416,6 +416,8 @@
     <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
     <Compile Include="Assets\Scripts\Buttonmanager.cs" />
     <Compile Include="Assets\Scripts\cameralook.cs" />
+    <Compile Include="Assets\Scripts\CPGameDataBase.cs" />
+    <Compile Include="Assets\Scripts\DeckImage.cs" />
     <Compile Include="Assets\Scripts\GameDataBase.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GPS.cs" />

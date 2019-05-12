@@ -13,6 +13,7 @@ public class GameDataBase : Singleton<GameDataBase>
     public List<Item> cards = new List<Item>();
     public List<Item> cards_Inventory = new List<Item>();
     public List<Item> cards_Deck = new List<Item>();
+    public int deckcost;
     public static string conn = string.Empty;
 
 
@@ -146,7 +147,7 @@ public class GameDataBase : Singleton<GameDataBase>
         IDataReader reader = dbcmd.ExecuteReader();
         while (reader.Read())
         {
-            int Num = cards_Inventory.Count;
+            int Num = cards_Deck.Count;
             int Cost = reader.GetInt32(1);
             int Hp = reader.GetInt32(2);
             int Damage = reader.GetInt32(3);
@@ -202,7 +203,7 @@ public class GameDataBase : Singleton<GameDataBase>
         IDataReader reader = dbcmd.ExecuteReader();
         while (reader.Read())
         {
-            int Num = cards_Inventory.Count;
+            int Num = cards.Count;
             int Cost = reader.GetInt32(1);
             int Hp = reader.GetInt32(2);
             int Damage = reader.GetInt32(3);

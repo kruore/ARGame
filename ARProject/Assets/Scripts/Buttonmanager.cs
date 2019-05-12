@@ -12,13 +12,5 @@ public class Buttonmanager : MonoBehaviour
     {
         SceneManager.LoadScene("Inventory");
     }
-    public void InventoryToggle()
-    {
-        Debug.Log(UIToggle.current.value.ToString());
-        if (UIToggle.current.value == false) return;
-    }
-    public void ToggleChange()
-    {
-        //gameObject.GetComponent<UIToggle>().c
-    }
+    
 }

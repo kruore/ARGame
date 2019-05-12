@@ -48,9 +48,9 @@ public class GUITestScrollView : MonoBehaviour
 		grid.AddItem( cell, true );
 	}
 
-	public void EV_Remove()
+	public void EV_Remove(int removecellnumber)
 	{
-		grid.RemoveItem( grid.GetCellData(0), true );
+		grid.RemoveItem( grid.GetCellData(removecellnumber), true );
 	}
 
 	public void EV_RemoveAll()
