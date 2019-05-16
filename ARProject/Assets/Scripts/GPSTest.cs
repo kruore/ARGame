@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 public class GPSTest : MonoBehaviour
 {
+    public static string b;
+    public static string c;
     string url = "";
     public double lat, lon ;
     LocationInfo li;
@@ -85,12 +87,8 @@ public class GPSTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Input.compass.enabled = true;
-        StartCoroutine(StartcompassServiece());
+        b = "0";
         StartCoroutine(StartLocationServiece());
-        gyro = Input.gyro;
-        gyro.enabled = true;
-        sCurrenttree = "44444444";
     }
 
     private IEnumerator StartLocationServiece()
@@ -99,19 +97,31 @@ public class GPSTest : MonoBehaviour
         {
             yield break;
         }
+        b = "0.1";
         Input.location.Start();
+        b = "0.2";
         while (Input.location.status == LocationServiceStatus.Initializing)
         {
             yield return new WaitForSeconds(1f);
         }
+        b = "0.3";
         if (Input.location.status == LocationServiceStatus.Failed)
         {
             yield break;
         }
-
+        b = "0.4";
+        Input.compass.enabled = true;
+        b = "0.5";
+        c = "0";
+        StartCoroutine(StartcompassServiece());
+        b = "0.6";
+        gyro = Input.gyro;
+        gyro.enabled = true;
+        sCurrenttree = "44444444";
         nowposition = "";
         Latitude = Input.location.lastData.latitude;
         Longitude = Input.location.lastData.longitude;
+        b = "0.7";
         //Latitude = 37.713364;
         //Longitude = 126.890129;
         Locationquadtree(west, east, north, south);
@@ -133,9 +143,12 @@ public class GPSTest : MonoBehaviour
         Rect rect = new Rect(0, 0, ((DownloadHandlerTexture)www.downloadHandler).texture.width, ((DownloadHandlerTexture)www.downloadHandler).texture.height);
         SpriteRenderer img = gameObject.GetComponent<SpriteRenderer>();
         img.sprite = Sprite.Create(((DownloadHandlerTexture)www.downloadHandler).texture, rect, new Vector2(0.5f, 0.5f));
+        b = "0.8";
         Placemove();
+        b = "0.9";
         mapcorutine = false;
         Resources.UnloadUnusedAssets();
+        b = "0.a";
     }
     private IEnumerator UpdateLocationServiece()
     {
@@ -256,6 +269,7 @@ public class GPSTest : MonoBehaviour
         while (true)
         {
             player.transform.rotation = Quaternion.Euler(0, Input.compass.trueHeading, 0);
+            c = Input.compass.trueHeading.ToString();
             yield return new WaitForSecondsRealtime(1);
         }
     }

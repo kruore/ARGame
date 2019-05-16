@@ -122,9 +122,11 @@ GameObject:
   m_Component:
   - component: {fileID: 88879010}
   - component: {fileID: 88879011}
+  - component: {fileID: 88879012}
+  - component: {fileID: 88879013}
   m_Layer: 8
-  m_Name: Rock
-  m_TagString: Untagged
+  m_Name: Stone
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,7 +181,7 @@ MonoBehaviour:
   mHeight: 100
   mDepth: 6
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1.9
@@ -206,6 +208,49 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 15, y: 15, z: 15, w: 15}
   mFixedAspect: 0
+--- !u!114 &88879012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88879009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 88879009}
+  hover: {r: 1, g: 1, b: 1, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 1
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 639068212}
+    mMethodName: Elementlist
+    mParameters: []
+    oneShot: 0
+--- !u!65 &88879013
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88879009}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 190, y: 100, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &104704379
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,8 +260,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 104704380}
-  - component: {fileID: 104704381}
+  - component: {fileID: 104704383}
   - component: {fileID: 104704382}
+  - component: {fileID: 104704381}
+  - component: {fileID: 104704384}
+  - component: {fileID: 104704385}
   m_Layer: 8
   m_Name: DeckSlot3
   m_TagString: Untagged
@@ -248,7 +296,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 104704379}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
@@ -270,15 +318,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 175
+  mWidth: 200
   mHeight: 300
-  mDepth: 4
+  mDepth: 1
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.5833333
-  mType: 1
+  aspectRatio: 0.6666667
+  mType: 0
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -291,16 +339,10 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  mTexture: {fileID: 10904, guid: 0000000000000000f000000000000000, type: 0}
-  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
-  mBorder: {x: 5, y: 5, z: 5, w: 5}
+  mAtlas: {fileID: 11400000, guid: 73199c7803677634089a0106b929f8e9, type: 2}
+  mSpriteName: background
   mFixedAspect: 0
+  mFillCenter: 1
 --- !u!114 &104704382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +356,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotnumber: 3
+  sprite: {fileID: 0}
+  copydb: {fileID: 395953886}
+--- !u!65 &104704383
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104704379}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 200, y: 300, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &104704384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104704379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 104704379}
+  hover: {r: 1, g: 1, b: 1, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 1
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 104704385}
+    mMethodName: Deckremove
+    mParameters: []
+    oneShot: 0
+--- !u!114 &104704385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104704379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583c6b717620a504cb9d1d366e4b3376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollview: {fileID: 1587896883}
+  copydb: {fileID: 395953886}
 --- !u!1 &115212695
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,9 +707,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3b4fd160129c34289969bac26b4134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testScrollView: {fileID: 1587896883}
   cpcards_Deck: []
   cpcards_Inventory: []
+  cards_category: []
   deckcost: 0
+  element: 0
 --- !u!4 &395953887
 Transform:
   m_ObjectHideFlags: 0
@@ -970,8 +1074,8 @@ MonoBehaviour:
   manualHeight: 1920
   minimumHeight: 320
   maximumHeight: 1536
-  fitWidth: 0
-  fitHeight: 1
+  fitWidth: 1
+  fitHeight: 0
   adjustByDPI: 0
   shrinkPortraitUI: 0
 --- !u!4 &639068211
@@ -983,7 +1087,7 @@ Transform:
   m_GameObject: {fileID: 639068207}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0010416667, y: 0.0010416667, z: 0.0010416667}
+  m_LocalScale: {x: 0.0010405828, y: 0.0010405828, z: 0.0010405828}
   m_Children:
   - {fileID: 736815786}
   - {fileID: 886643963}
@@ -1032,7 +1136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670575066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 384, y: 882, z: 0}
+  m_LocalPosition: {x: 370, y: 861, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1534808893}
@@ -1170,11 +1274,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiCamera: {fileID: 736815784}
-  container: {fileID: 0}
+  container: {fileID: 1911057940}
   side: 4
   runOnlyOnce: 1
   relativeOffset: {x: 0, y: 0}
-  pixelOffset: {x: -40, y: -20}
+  pixelOffset: {x: -170, y: -100}
   widgetContainer: {fileID: 0}
 --- !u!1 &736815783
 GameObject:
@@ -1467,7 +1571,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   mFont: {fileID: 0}
-  mText: "\uAF43"
+  mText: "\uD480"
   mFontSize: 50
   mFontStyle: 0
   mAlignment: 0
@@ -1610,6 +1714,7 @@ GameObject:
   - component: {fileID: 846983818}
   - component: {fileID: 846983817}
   - component: {fileID: 846983820}
+  - component: {fileID: 846983821}
   m_Layer: 8
   m_Name: OrganizationCompleteButton
   m_TagString: Untagged
@@ -1625,7 +1730,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846983814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: -825, z: 0}
+  m_LocalPosition: {x: 0, y: -836, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1401667661}
@@ -1767,7 +1872,7 @@ MonoBehaviour:
   pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
   disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   duration: 0.2
-  dragHighlight: 0
+  dragHighlight: 1
   hoverSprite: 
   pressedSprite: 
   disabledSprite: 
@@ -1775,7 +1880,30 @@ MonoBehaviour:
   pressedSprite2D: {fileID: 0}
   disabledSprite2D: {fileID: 0}
   pixelSnap: 0
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 639068212}
+    mMethodName: SaveDB
+    mParameters: []
+    oneShot: 0
+--- !u!114 &846983821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846983814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8077b76001d36d489868d20d28bddb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiCamera: {fileID: 736815784}
+  container: {fileID: 1911057940}
+  side: 7
+  runOnlyOnce: 1
+  relativeOffset: {x: 0, y: 0}
+  pixelOffset: {x: 0, y: 125}
+  widgetContainer: {fileID: 0}
 --- !u!1 &886643962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,13 +1977,13 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3000
+  startingRenderQueue: 3012
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 1
+  mDepth: 4
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
@@ -1972,8 +2100,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 907609550}
-  - component: {fileID: 907609551}
+  - component: {fileID: 907609553}
   - component: {fileID: 907609552}
+  - component: {fileID: 907609551}
+  - component: {fileID: 907609554}
+  - component: {fileID: 907609555}
   m_Layer: 8
   m_Name: DeckSlot1
   m_TagString: Untagged
@@ -2005,7 +2136,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 907609549}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
@@ -2027,15 +2158,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 175
+  mWidth: 200
   mHeight: 300
-  mDepth: 4
+  mDepth: 2
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.5833333
-  mType: 1
+  aspectRatio: 0.6666667
+  mType: 0
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -2048,16 +2179,10 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  mTexture: {fileID: 10904, guid: 0000000000000000f000000000000000, type: 0}
-  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
-  mBorder: {x: 5, y: 5, z: 5, w: 5}
+  mAtlas: {fileID: 11400000, guid: 73199c7803677634089a0106b929f8e9, type: 2}
+  mSpriteName: background
   mFixedAspect: 0
+  mFillCenter: 1
 --- !u!114 &907609552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2071,6 +2196,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotnumber: 1
+  sprite: {fileID: 0}
+  copydb: {fileID: 395953886}
+--- !u!65 &907609553
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907609549}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 200, y: 300, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &907609554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907609549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 907609549}
+  hover: {r: 1, g: 1, b: 1, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 1
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 907609555}
+    mMethodName: Deckremove
+    mParameters: []
+    oneShot: 0
+--- !u!114 &907609555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907609549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583c6b717620a504cb9d1d366e4b3376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollview: {fileID: 1587896883}
+  copydb: {fileID: 395953886}
 --- !u!1 &978421917
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,6 +2265,8 @@ GameObject:
   m_Component:
   - component: {fileID: 978421918}
   - component: {fileID: 978421919}
+  - component: {fileID: 978421920}
+  - component: {fileID: 978421921}
   m_Layer: 8
   m_Name: All
   m_TagString: Untagged
@@ -2138,7 +2324,7 @@ MonoBehaviour:
   mHeight: 100
   mDepth: 6
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1.9
@@ -2165,6 +2351,49 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 15, y: 15, z: 15, w: 15}
   mFixedAspect: 0
+--- !u!114 &978421920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978421917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 978421917}
+  hover: {r: 1, g: 1, b: 1, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 1
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 639068212}
+    mMethodName: Elementlist
+    mParameters: []
+    oneShot: 0
+--- !u!65 &978421921
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978421917}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 190, y: 100, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1065360038
 GameObject:
   m_ObjectHideFlags: 0
@@ -2276,7 +2505,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1073975302}
   - component: {fileID: 1073975303}
+  - component: {fileID: 1073975307}
   - component: {fileID: 1073975304}
+  - component: {fileID: 1073975305}
+  - component: {fileID: 1073975306}
   m_Layer: 8
   m_Name: DeckSlot0
   m_TagString: Untagged
@@ -2308,7 +2540,66 @@ MonoBehaviour:
   m_GameObject: {fileID: 1073975301}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 1073975301}
+  hover: {r: 1, g: 1, b: 1, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 1
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 1073975305}
+    mMethodName: Deckremove
+    mParameters: []
+    oneShot: 0
+--- !u!114 &1073975304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073975301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f78b18d8ce3d94fb14b8e9cf40058a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotnumber: 0
+  sprite: {fileID: 0}
+  copydb: {fileID: 395953886}
+--- !u!114 &1073975305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073975301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583c6b717620a504cb9d1d366e4b3376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollview: {fileID: 1587896883}
+  copydb: {fileID: 395953886}
+--- !u!114 &1073975306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073975301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
@@ -2330,15 +2621,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 175
+  mWidth: 200
   mHeight: 300
-  mDepth: 4
+  mDepth: 1
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.5833333
-  mType: 1
+  aspectRatio: 0.6666667
+  mType: 0
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -2351,29 +2642,23 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  mTexture: {fileID: 10904, guid: 0000000000000000f000000000000000, type: 0}
-  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
-  mBorder: {x: 5, y: 5, z: 5, w: 5}
+  mAtlas: {fileID: 11400000, guid: 73199c7803677634089a0106b929f8e9, type: 2}
+  mSpriteName: background
   mFixedAspect: 0
---- !u!114 &1073975304
-MonoBehaviour:
+  mFillCenter: 1
+--- !u!65 &1073975307
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073975301}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6f78b18d8ce3d94fb14b8e9cf40058a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slotnumber: 0
+  serializedVersion: 2
+  m_Size: {x: 200, y: 300, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1105731123
 GameObject:
   m_ObjectHideFlags: 0
@@ -2569,9 +2854,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1158802518}
   - component: {fileID: 1158802519}
+  - component: {fileID: 1158802520}
+  - component: {fileID: 1158802521}
   m_Layer: 8
   m_Name: Wood
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2626,7 +2913,7 @@ MonoBehaviour:
   mHeight: 100
   mDepth: 6
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1.9
@@ -2653,6 +2940,49 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 15, y: 15, z: 15, w: 15}
   mFixedAspect: 0
+--- !u!114 &1158802520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158802517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 1158802517}
+  hover: {r: 1, g: 1, b: 1, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 1
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 639068212}
+    mMethodName: Elementlist
+    mParameters: []
+    oneShot: 0
+--- !u!65 &1158802521
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158802517}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 190, y: 100, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1162840360
 GameObject:
   m_ObjectHideFlags: 0
@@ -2921,16 +3251,16 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 328
+  mWidth: 310
   mHeight: 100
   mDepth: 2
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 3.28
+  aspectRatio: 3.1
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  mTrueTypeFont: {fileID: 12800000, guid: 3259fc9f2ceb2844b88b43ed9be1daad, type: 3}
   mFont: {fileID: 0}
   mText: "\uB371 \uD3B8\uC131"
   mFontSize: 100
@@ -3058,8 +3388,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1344340638}
-  - component: {fileID: 1344340639}
+  - component: {fileID: 1344340641}
   - component: {fileID: 1344340640}
+  - component: {fileID: 1344340639}
+  - component: {fileID: 1344340642}
+  - component: {fileID: 1344340643}
   m_Layer: 8
   m_Name: DeckSlot8
   m_TagString: Untagged
@@ -3091,7 +3424,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1344340637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
@@ -3113,15 +3446,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 175
+  mWidth: 200
   mHeight: 300
-  mDepth: 4
+  mDepth: 1
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.5833333
-  mType: 1
+  aspectRatio: 0.6666667
+  mType: 0
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -3134,16 +3467,10 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  mTexture: {fileID: 10904, guid: 0000000000000000f000000000000000, type: 0}
-  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
-  mBorder: {x: 5, y: 5, z: 5, w: 5}
+  mAtlas: {fileID: 11400000, guid: 73199c7803677634089a0106b929f8e9, type: 2}
+  mSpriteName: background
   mFixedAspect: 0
+  mFillCenter: 1
 --- !u!114 &1344340640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3157,6 +3484,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotnumber: 8
+  sprite: {fileID: 0}
+  copydb: {fileID: 395953886}
+--- !u!65 &1344340641
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344340637}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 200, y: 300, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1344340642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344340637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 1344340637}
+  hover: {r: 1, g: 1, b: 1, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 1
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 1344340643}
+    mMethodName: Deckremove
+    mParameters: []
+    oneShot: 0
+--- !u!114 &1344340643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344340637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583c6b717620a504cb9d1d366e4b3376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollview: {fileID: 1587896883}
+  copydb: {fileID: 395953886}
 --- !u!1 &1354155073
 GameObject:
   m_ObjectHideFlags: 0
@@ -3461,8 +3847,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1413330600}
-  - component: {fileID: 1413330601}
+  - component: {fileID: 1413330603}
   - component: {fileID: 1413330602}
+  - component: {fileID: 1413330601}
+  - component: {fileID: 1413330604}
+  - component: {fileID: 1413330605}
   m_Layer: 8
   m_Name: DeckSlot4
   m_TagString: Untagged
@@ -3494,7 +3883,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1413330599}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
@@ -3516,15 +3905,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 175
+  mWidth: 200
   mHeight: 300
-  mDepth: 4
+  mDepth: 2
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.5833333
-  mType: 1
+  aspectRatio: 0.6666667
+  mType: 0
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -3537,16 +3926,10 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  mTexture: {fileID: 10904, guid: 0000000000000000f000000000000000, type: 0}
-  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
-  mBorder: {x: 5, y: 5, z: 5, w: 5}
+  mAtlas: {fileID: 11400000, guid: 73199c7803677634089a0106b929f8e9, type: 2}
+  mSpriteName: background
   mFixedAspect: 0
+  mFillCenter: 1
 --- !u!114 &1413330602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3560,6 +3943,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotnumber: 4
+  sprite: {fileID: 0}
+  copydb: {fileID: 395953886}
+--- !u!65 &1413330603
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413330599}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 200, y: 300, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1413330604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413330599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 1413330599}
+  hover: {r: 1, g: 1, b: 1, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 1
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 1413330602}
+    mMethodName: DeckReImage
+    mParameters: []
+    oneShot: 0
+--- !u!114 &1413330605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413330599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583c6b717620a504cb9d1d366e4b3376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollview: {fileID: 1587896883}
+  copydb: {fileID: 395953886}
 --- !u!1 &1428267830
 GameObject:
   m_ObjectHideFlags: 0
@@ -3672,8 +4114,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1486540653}
-  - component: {fileID: 1486540654}
+  - component: {fileID: 1486540656}
   - component: {fileID: 1486540655}
+  - component: {fileID: 1486540654}
+  - component: {fileID: 1486540657}
+  - component: {fileID: 1486540658}
   m_Layer: 8
   m_Name: DeckSlot5
   m_TagString: Untagged
@@ -3705,7 +4150,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1486540652}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
@@ -3727,15 +4172,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 175
+  mWidth: 200
   mHeight: 300
-  mDepth: 4
+  mDepth: 2
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.5833333
-  mType: 1
+  aspectRatio: 0.6666667
+  mType: 0
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -3748,16 +4193,10 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  mTexture: {fileID: 10904, guid: 0000000000000000f000000000000000, type: 0}
-  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
-  mBorder: {x: 5, y: 5, z: 5, w: 5}
+  mAtlas: {fileID: 11400000, guid: 73199c7803677634089a0106b929f8e9, type: 2}
+  mSpriteName: background
   mFixedAspect: 0
+  mFillCenter: 1
 --- !u!114 &1486540655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3771,6 +4210,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotnumber: 5
+  sprite: {fileID: 0}
+  copydb: {fileID: 395953886}
+--- !u!65 &1486540656
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486540652}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 200, y: 300, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1486540657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486540652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 1486540652}
+  hover: {r: 1, g: 1, b: 1, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 1
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 1486540658}
+    mMethodName: Deckremove
+    mParameters: []
+    oneShot: 0
+--- !u!114 &1486540658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486540652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583c6b717620a504cb9d1d366e4b3376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollview: {fileID: 1587896883}
+  copydb: {fileID: 395953886}
 --- !u!1 &1501852667
 GameObject:
   m_ObjectHideFlags: 0
@@ -3781,9 +4279,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1501852668}
   - component: {fileID: 1501852669}
+  - component: {fileID: 1501852670}
+  - component: {fileID: 1501852671}
   m_Layer: 8
   m_Name: Chaos
-  m_TagString: Untagged
+  m_TagString: Chaos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3838,7 +4338,7 @@ MonoBehaviour:
   mHeight: 100
   mDepth: 6
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1.9
@@ -3865,6 +4365,49 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 15, y: 15, z: 15, w: 15}
   mFixedAspect: 0
+--- !u!114 &1501852670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501852667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 1501852667}
+  hover: {r: 1, g: 1, b: 1, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 1
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 639068212}
+    mMethodName: Elementlist
+    mParameters: []
+    oneShot: 0
+--- !u!65 &1501852671
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501852667}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 190, y: 100, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1522122133
 GameObject:
   m_ObjectHideFlags: 0
@@ -3875,9 +4418,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1522122134}
   - component: {fileID: 1522122135}
+  - component: {fileID: 1522122136}
+  - component: {fileID: 1522122137}
   m_Layer: 8
   m_Name: Grass
-  m_TagString: Untagged
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3932,7 +4477,7 @@ MonoBehaviour:
   mHeight: 100
   mDepth: 6
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1.9
@@ -3959,6 +4504,49 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 15, y: 15, z: 15, w: 15}
   mFixedAspect: 0
+--- !u!114 &1522122136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522122133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 1522122133}
+  hover: {r: 1, g: 1, b: 1, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 1
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 639068212}
+    mMethodName: Elementlist
+    mParameters: []
+    oneShot: 0
+--- !u!65 &1522122137
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522122133}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 190, y: 100, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1534808892
 GameObject:
   m_ObjectHideFlags: 0
@@ -4228,6 +4816,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   count: 10
   inventory: []
+  items: []
+  copydb: {fileID: 395953885}
 --- !u!114 &1587896884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4293,7 +4883,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3014
+  startingRenderQueue: 3012
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
@@ -4330,7 +4920,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671899541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: -2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1911057941}
@@ -4426,8 +5016,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1703427959}
-  - component: {fileID: 1703427960}
+  - component: {fileID: 1703427962}
   - component: {fileID: 1703427961}
+  - component: {fileID: 1703427960}
+  - component: {fileID: 1703427963}
+  - component: {fileID: 1703427964}
   m_Layer: 8
   m_Name: DeckSlot7
   m_TagString: Untagged
@@ -4459,7 +5052,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1703427958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
@@ -4481,15 +5074,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 175
+  mWidth: 200
   mHeight: 300
-  mDepth: 4
+  mDepth: 2
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.5833333
-  mType: 1
+  aspectRatio: 0.6666667
+  mType: 0
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -4502,16 +5095,10 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  mTexture: {fileID: 10904, guid: 0000000000000000f000000000000000, type: 0}
-  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
-  mBorder: {x: 5, y: 5, z: 5, w: 5}
+  mAtlas: {fileID: 11400000, guid: 73199c7803677634089a0106b929f8e9, type: 2}
+  mSpriteName: background
   mFixedAspect: 0
+  mFillCenter: 1
 --- !u!114 &1703427961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4525,6 +5112,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotnumber: 7
+  sprite: {fileID: 0}
+  copydb: {fileID: 395953886}
+--- !u!65 &1703427962
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703427958}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 200, y: 300, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1703427963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703427958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 1703427958}
+  hover: {r: 1, g: 1, b: 1, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 1
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 1703427964}
+    mMethodName: Deckremove
+    mParameters: []
+    oneShot: 0
+--- !u!114 &1703427964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703427958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583c6b717620a504cb9d1d366e4b3376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollview: {fileID: 1587896883}
+  copydb: {fileID: 395953886}
 --- !u!1 &1818664502
 GameObject:
   m_ObjectHideFlags: 0
@@ -4552,7 +5198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818664502}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: -192, z: 0}
+  m_LocalPosition: {x: 0, y: -194, z: 0}
   m_LocalScale: {x: 0.9983999, y: 0.9983999, z: 0.9983999}
   m_Children:
   - {fileID: 742539664}
@@ -4970,7 +5616,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3003
+  startingRenderQueue: 3000
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -5158,8 +5804,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1943183419}
-  - component: {fileID: 1943183420}
+  - component: {fileID: 1943183422}
   - component: {fileID: 1943183421}
+  - component: {fileID: 1943183420}
+  - component: {fileID: 1943183423}
+  - component: {fileID: 1943183424}
   m_Layer: 8
   m_Name: DeckSlot6
   m_TagString: Untagged
@@ -5191,7 +5840,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1943183418}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
@@ -5213,15 +5862,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 175
+  mWidth: 200
   mHeight: 300
-  mDepth: 4
+  mDepth: 2
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.5833333
-  mType: 1
+  aspectRatio: 0.6666667
+  mType: 0
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -5234,16 +5883,10 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  mTexture: {fileID: 10904, guid: 0000000000000000f000000000000000, type: 0}
-  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
-  mBorder: {x: 5, y: 5, z: 5, w: 5}
+  mAtlas: {fileID: 11400000, guid: 73199c7803677634089a0106b929f8e9, type: 2}
+  mSpriteName: background
   mFixedAspect: 0
+  mFillCenter: 1
 --- !u!114 &1943183421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5257,6 +5900,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotnumber: 6
+  sprite: {fileID: 0}
+  copydb: {fileID: 395953886}
+--- !u!65 &1943183422
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943183418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 200, y: 300, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1943183423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943183418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 1943183418}
+  hover: {r: 1, g: 1, b: 1, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 1
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 1943183424}
+    mMethodName: Deckremove
+    mParameters: []
+    oneShot: 0
+--- !u!114 &1943183424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943183418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583c6b717620a504cb9d1d366e4b3376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollview: {fileID: 1587896883}
+  copydb: {fileID: 395953886}
 --- !u!1 &1973802262
 GameObject:
   m_ObjectHideFlags: 0
@@ -5387,7 +6089,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982723840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 196, z: 0}
+  m_LocalPosition: {x: 0, y: 194, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1271458557}
@@ -5503,7 +6205,8 @@ MonoBehaviour:
   activate:
   - {fileID: 1911057942}
   - {fileID: 1587896885}
-  deactivate: []
+  deactivate:
+  - {fileID: 886643964}
   target: {fileID: 0}
   inverse: 0
 --- !u!114 &1982723846
@@ -5542,8 +6245,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2065815339}
-  - component: {fileID: 2065815340}
+  - component: {fileID: 2065815342}
   - component: {fileID: 2065815341}
+  - component: {fileID: 2065815340}
+  - component: {fileID: 2065815343}
+  - component: {fileID: 2065815344}
   m_Layer: 8
   m_Name: DeckSlot2
   m_TagString: Untagged
@@ -5575,7 +6281,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2065815338}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
@@ -5597,15 +6303,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 175
+  mWidth: 200
   mHeight: 300
-  mDepth: 4
+  mDepth: 2
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.5833333
-  mType: 1
+  aspectRatio: 0.6666667
+  mType: 0
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -5618,16 +6324,10 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  mTexture: {fileID: 10904, guid: 0000000000000000f000000000000000, type: 0}
-  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
-  mBorder: {x: 5, y: 5, z: 5, w: 5}
+  mAtlas: {fileID: 11400000, guid: 73199c7803677634089a0106b929f8e9, type: 2}
+  mSpriteName: background
   mFixedAspect: 0
+  mFillCenter: 1
 --- !u!114 &2065815341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5641,6 +6341,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotnumber: 2
+  sprite: {fileID: 0}
+  copydb: {fileID: 395953886}
+--- !u!65 &2065815342
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065815338}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 200, y: 300, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2065815343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065815338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 2065815338}
+  hover: {r: 1, g: 1, b: 1, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 1
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 2065815344}
+    mMethodName: Deckremove
+    mParameters: []
+    oneShot: 0
+--- !u!114 &2065815344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065815338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583c6b717620a504cb9d1d366e4b3376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollview: {fileID: 1587896883}
+  copydb: {fileID: 395953886}
 --- !u!1 &2143765744
 GameObject:
   m_ObjectHideFlags: 0
@@ -5650,8 +6409,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2143765745}
-  - component: {fileID: 2143765746}
+  - component: {fileID: 2143765748}
   - component: {fileID: 2143765747}
+  - component: {fileID: 2143765746}
+  - component: {fileID: 2143765750}
+  - component: {fileID: 2143765749}
   m_Layer: 8
   m_Name: DeckSlot9
   m_TagString: Untagged
@@ -5683,7 +6445,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2143765744}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftAnchor:
@@ -5705,15 +6467,15 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 175
+  mWidth: 200
   mHeight: 300
-  mDepth: 4
+  mDepth: 2
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.5833333
-  mType: 1
+  aspectRatio: 0.6666667
+  mType: 0
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -5726,16 +6488,10 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  mTexture: {fileID: 10904, guid: 0000000000000000f000000000000000, type: 0}
-  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
-  mBorder: {x: 5, y: 5, z: 5, w: 5}
+  mAtlas: {fileID: 11400000, guid: 73199c7803677634089a0106b929f8e9, type: 2}
+  mSpriteName: background
   mFixedAspect: 0
+  mFillCenter: 1
 --- !u!114 &2143765747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5749,3 +6505,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotnumber: 9
+  sprite: {fileID: 0}
+  copydb: {fileID: 395953886}
+--- !u!65 &2143765748
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143765744}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 200, y: 300, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2143765749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143765744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 2143765744}
+  hover: {r: 1, g: 1, b: 1, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 1
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 2143765750}
+    mMethodName: Deckremove
+    mParameters: []
+    oneShot: 0
+--- !u!114 &2143765750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143765744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583c6b717620a504cb9d1d366e4b3376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollview: {fileID: 1587896883}
+  copydb: {fileID: 395953886}

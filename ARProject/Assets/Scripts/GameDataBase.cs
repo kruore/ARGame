@@ -8,35 +8,42 @@ using System.Data;
 using UnityEngine.Android;
 public class GameDataBase : Singleton<GameDataBase>
 {
+    
     public List<GpsData> places = new List<GpsData>();
     public List<GpsData> currentquadplaces = new List<GpsData>();
     public List<Item> cards = new List<Item>();
     public List<Item> cards_Inventory = new List<Item>();
     public List<Item> cards_Deck = new List<Item>();
     public int deckcost;
+    public string DBName;
     public static string conn = string.Empty;
-
+    public static string a ="0";
 
     public void Awake()
     {
-        Caching.ClearCache();
-        Setplatform();
-        Ds_CopyDB();
-        DS_InventorySetting();
-        CardSetting();
-        DS_DeckSetting();
+        DBName = "testDB - 복사본";
         StartCoroutine(Permissioncheck());
 
+        Setplatform();
+
+        Ds_CopyDB();
+
+        DS_InventorySetting();
+
+        CardSetting();
+
+        DS_DeckSetting();
+        
     }
     void Setplatform()
     {
         if (Application.platform == RuntimePlatform.Android)
         {
-            conn = "URI=file:" + Application.persistentDataPath + "/testDB.sqlite";
+            conn = "URI=file:" + Application.persistentDataPath + "/"+ DBName + ".sqlite";
         }
         else
         {
-            conn = "URI=file:" + Application.dataPath + "/StreamingAssets/testDB.sqlite";
+            conn = "URI=file:" + Application.dataPath + "/StreamingAssets/" + DBName + ".sqlite";
         }
     }
     private IEnumerator Permissioncheck()
@@ -88,10 +95,10 @@ public class GameDataBase : Singleton<GameDataBase>
         if (Application.platform == RuntimePlatform.Android)
         {
 
-            conn = Application.persistentDataPath + "/testDB.sqlite";
+            conn = Application.persistentDataPath + "/" + DBName + ".sqlite";
             if (!File.Exists(conn))
             {
-                WWW loadDB = new WWW("jar:file://" + Application.dataPath + "/assets/testDB.sqlite");
+                WWW loadDB = new WWW("jar:file://" + Application.dataPath + "/assets/" + DBName + ".sqlite");
                 loadDB.bytesDownloaded.ToString();
                 while (!loadDB.isDone) { }
                 File.WriteAllBytes(conn, loadDB.bytes);
@@ -110,24 +117,30 @@ public class GameDataBase : Singleton<GameDataBase>
     public void DS_InventorySetting()
     {
         IDbConnection dbconn;
+
         dbconn = (IDbConnection)new SqliteConnection(conn);
+
         dbconn.Open();
 
         IDbCommand dbcmd = dbconn.CreateCommand();
+
         string sqlQuery = "SELECT * FROM Inventory";
+
         dbcmd.CommandText = sqlQuery;
+
         IDataReader reader = dbcmd.ExecuteReader();
+
         while (reader.Read())
         {
             int Num = cards_Inventory.Count;
             int Cost = reader.GetInt32(1);
-            int Hp = reader.GetInt32(2);
-            int Damage = reader.GetInt32(3);
-            string Name = reader.GetString(4);
-            Element element = (Element)reader.GetInt32(5);
-
-            cards_Inventory.Add(new Item(Num, Cost, Hp, Damage, Name, element));
+            int Damage = reader.GetInt32(2);
+            string Name = reader.GetString(3);
+            Element element = (Element)reader.GetInt32(4);
+            int Rank = reader.GetInt32(5);
+            cards_Inventory.Add(new Item(Num, Cost, Damage, Name, element, Rank));
         }
+
         reader.Close();
         reader = null;
         dbcmd.Dispose();
@@ -149,12 +162,12 @@ public class GameDataBase : Singleton<GameDataBase>
         {
             int Num = cards_Deck.Count;
             int Cost = reader.GetInt32(1);
-            int Hp = reader.GetInt32(2);
-            int Damage = reader.GetInt32(3);
-            string Name = reader.GetString(4);
-            Element element = (Element)reader.GetInt32(5);
-
-            cards_Deck.Add(new Item(Num, Cost, Hp, Damage, Name, element));
+            int Damage = reader.GetInt32(2);
+            string Name = reader.GetString(3);
+            Element element = (Element)reader.GetInt32(4);
+            int Rank = reader.GetInt32(5);
+            deckcost += Cost;
+            cards_Deck.Add(new Item(Num, Cost,Damage, Name, element,Rank));
         }
         reader.Close();
         reader = null;
@@ -175,10 +188,10 @@ public class GameDataBase : Singleton<GameDataBase>
         IDataReader reader = dbcmd.ExecuteReader();
         reader.Close();
         reader = null;
-        for (int i = 0; cards_Deck.Count < i; i++)
+        for (int i = 0; cards_Deck.Count > i; i++)
         {
             sqlQuery = string.Empty;
-            sqlQuery = "insert into deck values(" +cards_Deck[i].cardInventoryNum +","+ cards_Deck[i].cardCost+ ","+ cards_Deck[i].cardHp + ","+ cards_Deck[i] .cardDamage+ ","+ cards_Deck[i].cardName+ ","+ cards_Deck[i].cardElement + "); ";
+            sqlQuery = "insert into deck values(" +cards_Deck[i].cardInventoryNum +","+ cards_Deck[i].cardCost+ ","+ cards_Deck[i] .cardDamage+ ",\""+ cards_Deck[i].cardName+ "\","+ (int)cards_Deck[i].cardElement+"," + cards_Deck[i].cardRank+"); ";
 
             dbcmd.CommandText = sqlQuery;
             reader = dbcmd.ExecuteReader();
@@ -186,6 +199,34 @@ public class GameDataBase : Singleton<GameDataBase>
             reader = null;
         }
         
+        dbcmd.Dispose();
+        dbcmd = null;
+        dbconn.Close();
+        dbconn = null;
+    }
+    public void DS_InventoryReSetting()
+    {
+        IDbConnection dbconn;
+        dbconn = (IDbConnection)new SqliteConnection(conn);
+        dbconn.Open();
+
+        IDbCommand dbcmd = dbconn.CreateCommand();
+        string sqlQuery = "delete FROM Inventory";
+        dbcmd.CommandText = sqlQuery;
+        IDataReader reader = dbcmd.ExecuteReader();
+        reader.Close();
+        reader = null;
+        for (int i = 0; cards_Inventory.Count > i; i++)
+        {
+            sqlQuery = string.Empty;
+            sqlQuery = "insert into Inventory values(" + cards_Inventory[i].cardInventoryNum + "," + cards_Inventory[i].cardCost + "," + cards_Inventory[i].cardDamage + ",\"" + cards_Inventory[i].cardName + "\"," + (int)cards_Inventory[i].cardElement +","+cards_Inventory[i].cardRank+ "); ";
+
+            dbcmd.CommandText = sqlQuery;
+            reader = dbcmd.ExecuteReader();
+            reader.Close();
+            reader = null;
+        }
+
         dbcmd.Dispose();
         dbcmd = null;
         dbconn.Close();
@@ -205,12 +246,12 @@ public class GameDataBase : Singleton<GameDataBase>
         {
             int Num = cards.Count;
             int Cost = reader.GetInt32(1);
-            int Hp = reader.GetInt32(2);
-            int Damage = reader.GetInt32(3);
-            string Name = reader.GetString(4);
-            Element element = (Element)reader.GetInt32(5);
+            int Damage = reader.GetInt32(2);
+            string Name = reader.GetString(3);
+            Element element = (Element)reader.GetInt32(4);
+            int Rank = reader.GetInt32(5);
 
-            cards.Add(new Item(Num, Cost, Hp, Damage, Name, element));
+            cards.Add(new Item(Num, Cost,  Damage, Name, element,Rank));
         }
         reader.Close();
         reader = null;

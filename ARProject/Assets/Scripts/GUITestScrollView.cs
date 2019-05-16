@@ -7,6 +7,8 @@ public class GUITestScrollView : MonoBehaviour
     public int count;
     private UIReuseGrid grid;
     public List<Item> inventory;
+    public List<Item> items=new List<Item>();
+    public GameObject copydb;
     public UIReuseGrid Grid
     {
         get
@@ -18,10 +20,12 @@ public class GUITestScrollView : MonoBehaviour
     void Awake()
     {
 		grid = GetComponentInChildren<UIReuseGrid>();
+        
     }
 
 	void Start () 
     {
+        items = copydb.GetComponent<CPGameDataBase>().cpcards_Inventory;
         inventory = GameDataBase.Instance.cards_Inventory;
         count = inventory.Count;
         // 임의의 데이터가 생성해서 gird에 추가시켜둔다.
@@ -31,9 +35,10 @@ public class GUITestScrollView : MonoBehaviour
 			ItemCellData cell = new ItemCellData();
 			cell.Index = inventory[i].cardInventoryNum;
 			cell.ImgName = inventory[i].cardName;
-            cell.HP = inventory[i].cardHp;
             cell.cost = inventory[i].cardCost;
             cell.element = inventory[i].cardElement;
+            cell.Damage = inventory[i].cardDamage;
+            cell.rank = inventory[i].cardRank;
             grid.AddItem( cell, false );
         }
 		grid.UpdateAllCellData();
@@ -47,7 +52,26 @@ public class GUITestScrollView : MonoBehaviour
 		cell.ImgName = string.Format( "name:{0}", cell.Index );
 		grid.AddItem( cell, true );
 	}
-
+    public void EV_UpdateAll()
+    {
+        grid.ClearItem(true);
+        inventory = items;
+        count = inventory.Count;
+        // 임의의 데이터가 생성해서 gird에 추가시켜둔다.
+        // ItemCellData 는 IReuseCellData 상속받아서 구현된 데이터 클래스다.
+        for (int i = 0; i < inventory.Count; ++i)
+        {
+            ItemCellData cell = new ItemCellData();
+            cell.Index = inventory[i].cardInventoryNum;
+            cell.ImgName = inventory[i].cardName;
+            cell.rank = inventory[i].cardRank;
+            cell.cost = inventory[i].cardCost;
+            cell.element = inventory[i].cardElement;
+            cell.Damage = inventory[i].cardDamage;
+            grid.AddItem(cell, false);
+        }
+        grid.UpdateAllCellData();
+    }
 	public void EV_Remove(int removecellnumber)
 	{
 		grid.RemoveItem( grid.GetCellData(removecellnumber), true );

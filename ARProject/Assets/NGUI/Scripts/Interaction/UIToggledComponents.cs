@@ -54,12 +54,14 @@ public class UIToggledComponents : MonoBehaviour
 			for (int i = 0; i < activate.Count; ++i)
 			{
 				MonoBehaviour comp = activate[i];
+                NGUITools.SetActive(comp.gameObject, current.value);
                 comp.enabled = current.value;
 			}
 
 			for (int i = 0; i < deactivate.Count; ++i)
 			{
 				MonoBehaviour comp = deactivate[i];
+                NGUITools.SetActive(comp.gameObject, !current.value);
                 comp.enabled = !current.value;
             }
 		}

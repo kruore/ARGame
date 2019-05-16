@@ -142,10 +142,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   places: []
-  inventory_places: []
   currentquadplaces: []
   cards: []
-  mytest: 
+  cards_Inventory: []
+  cards_Deck: []
+  deckcost: 0
 --- !u!4 &366805488
 Transform:
   m_ObjectHideFlags: 0

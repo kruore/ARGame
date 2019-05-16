@@ -156,7 +156,7 @@ public class UISprite : UIBasicSprite
 		}
 		set
 		{
-			if (string.IsNullOrEmpty(value))
+            if (string.IsNullOrEmpty(value))
 			{
 				// If the sprite name hasn't been set yet, no need to do anything
 				if (string.IsNullOrEmpty(mSpriteName)) return;
@@ -175,6 +175,7 @@ public class UISprite : UIBasicSprite
 				mChanged = true;
 				mSpriteSet = false;
 			}
+
 		}
 	}
 

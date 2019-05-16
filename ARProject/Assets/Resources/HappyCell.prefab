@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6805169290454031226}
   - component: {fileID: 7604242023505109595}
   - component: {fileID: 6066880141895867409}
+  - component: {fileID: 1629139309672679147}
+  - component: {fileID: 4982220398298753066}
   m_Layer: 8
   m_Name: HappyCell
   m_TagString: Untagged
@@ -62,6 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   label: {fileID: 3879714988510352041}
+  sprite: {fileID: 4414164246443151718}
 --- !u!65 &6066880141895867409
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -75,6 +78,50 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 270, y: 490.00003, z: 0}
   m_Center: {x: 150, y: 0, z: 0}
+--- !u!114 &1629139309672679147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127074712793613976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 0}
+  hover: {r: 0.88235295, g: 0.78431374, b: 0.5882353, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 0
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 4982220398298753066}
+    mMethodName: Deckinsert
+    mParameters: []
+    oneShot: 0
+--- !u!114 &4982220398298753066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127074712793613976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a18a30ea75a841b4fb5a9dfcff1a4372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aa: {fileID: 0}
+  copydb: {fileID: 0}
 --- !u!1 &2453079931814357763
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,8 +205,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 74f95d5845b25e44194e5998575ee587, type: 3}
-  mSpriteName: mail_xinxitiao
+  mAtlas: {fileID: 11400000, guid: 73199c7803677634089a0106b929f8e9, type: 2}
+  mSpriteName: background
   mFixedAspect: 0
   mFillCenter: 1
 --- !u!1 &8750612422203297348

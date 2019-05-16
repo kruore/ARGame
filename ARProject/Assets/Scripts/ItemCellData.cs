@@ -15,13 +15,81 @@ public class ItemCellData : IReuseCellData{
 			m_Index = value;
 		}
 	}
-	#endregion
+    public string m_ImgName;
+    public string ImgName
+    {
+        get
+        {
+            return m_ImgName;
+        }
+        set
+        {
+            m_ImgName = value;
+        }
+    }
+    public int m_Damage;
+    public int Damage
+    {
+        get
+        {
+            return m_Damage;
+        }
+        set
+        {
+            m_Damage = value;
+        }
+    }
+    public int m_num;
+    public int num
+    {
+        get
+        {
+            return m_num;
+        }
+        set
+        {
+            m_num = value;
+        }
+    }
+    //public string Value;
+    public int m_rank;
+    public int rank
+    {
+        get
+        {
+            return m_rank;
+        }
+        set
+        {
+            m_rank = value;
+        }
+    }
+    public Element m_element;
+    public Element element
+    {
+        get
+        {
+            return m_element;
+        }
+        set
+        {
+            m_element = value;
+        }
+    }
+    public int m_cost;
+    public int cost
+    {
+        get
+        {
+            return m_cost;
+        }
+        set
+        {
+            m_cost = value;
+        }
+    }
+    #endregion
 
-	// user data
-	public string ImgName;
-    public int num;
-	//public string Value;
-    public int HP;
-    public Element element;
-    public int cost;
+    // user data
+
 }
