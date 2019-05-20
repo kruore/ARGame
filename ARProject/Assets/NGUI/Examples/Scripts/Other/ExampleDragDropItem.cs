@@ -25,7 +25,8 @@ public class ExampleDragDropItem : UIDragDropItem
 
 			if (dds != null)
 			{
-				GameObject child = NGUITools.AddChild(dds.gameObject, prefab);
+                cardform = surface.GetComponent<CardForm>();
+                GameObject child = NGUITools.AddChild(dds.gameObject, prefab);
 				child.transform.localScale = dds.transform.localScale;
 
 				Transform trans = child.transform;
@@ -34,6 +35,8 @@ public class ExampleDragDropItem : UIDragDropItem
                 if (dds.rotatePlacedObject)
 				{
 					trans.rotation = Quaternion.LookRotation(UICamera.lastHit.normal) * Quaternion.Euler(90f, 0f, 0f);
+                    OnDragDropEnd(surface);
+                    cardform.CardUnitCareater();
                 }
                 // Destroy this icon as it's no longer needed
                 NGUITools.Destroy(gameObject);

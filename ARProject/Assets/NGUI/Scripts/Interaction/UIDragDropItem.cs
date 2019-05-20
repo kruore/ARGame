@@ -378,8 +378,7 @@ public class UIDragDropItem : MonoBehaviour
 	{
 		if (!cloneOnDrag)
 		{
-          
-            cardform = surface.GetComponent<CardForm>();
+                      
             // Clear the reference to the scroll view since it might be in another scroll view now
             var drags = GetComponentsInChildren<UIDragScrollView>();
 			foreach (var d in drags) d.scrollView = null;
@@ -422,8 +421,6 @@ public class UIDragDropItem : MonoBehaviour
 			if (mGrid != null) mGrid.repositionNow = true;
 		}
         // We're now done
-        OnDragDropEnd(surface);
-        cardform.CardUnitCareater();
         if (cloneOnDrag) DestroySelf();
 	}
 

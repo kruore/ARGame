@@ -1,0 +1,34 @@
+fileFormatVersion: 2
+guid: c478c88d1659cf34285f6403ff56589f
+timeCreated: 1511166793
+licenseType: Store
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Ropa Sans
+  fontNames:
+  - Ropa Sans
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1d659a1039626164d8e45e7ea28ba520, type: 3}
+  - {fileID: 12800000, guid: 88bfb5515dbc6594a9847e39b9bd90ad, type: 3}
+  - {fileID: 12800000, guid: ee1300e1cb63e2c43a760d193d842505, type: 3}
+  - {fileID: 12800000, guid: aac11002015e8f749a6edc5e1b1b7e24, type: 3}
+  - {fileID: 12800000, guid: ed8cac226b0270e4b96594a743d606b8, type: 3}
+  - {fileID: 12800000, guid: 69a86c33ef4fa354894991c84ebe46a5, type: 3}
+  - {fileID: 12800000, guid: 8c44e4443da6ee844bc5274a0c8777f9, type: 3}
+  - {fileID: 12800000, guid: 115f4158519227f47b17542e01922f25, type: 3}
+  - {fileID: 12800000, guid: b52c932cd78321441b52fc24e19f1ec8, type: 3}
+  - {fileID: 12800000, guid: e20c369cc9451364cb71d1cda315a439, type: 3}
+  - {fileID: 12800000, guid: f286704dab684a64eb165001aa2132e4, type: 3}
+  - {fileID: 12800000, guid: 7911ad1ed6c775843bc4c1cfe24a14a6, type: 3}
+  - {fileID: 12800000, guid: 4680495e6b0743746a49469ec0b620d9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
