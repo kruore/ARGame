@@ -14,19 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: e9dfe09c2848bc541822060e701f080e, type: 2}
   mSprites:
-  - name: "\uC2AC\uB77C\uBB34"
-    x: 0
-    y: 231
-    width: 965
-    height: 1002
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 8
-    paddingRight: 9
-    paddingTop: 12
-    paddingBottom: 6
   - name: background
     x: 0
     y: 2218
@@ -40,6 +27,58 @@ MonoBehaviour:
     paddingRight: 15
     paddingTop: 21
     paddingBottom: 21
+  - name: Nanum
+    x: 1483
+    y: 1506
+    width: 787
+    height: 510
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 237
+    paddingTop: 2
+    paddingBottom: 0
+  - name: "\uACE8\uB808\uBBF8"
+    x: 2204
+    y: 2154
+    width: 483
+    height: 1011
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 2
+  - name: "\uB9AC\uB178"
+    x: 1051
+    y: 3027
+    width: 709
+    height: 1069
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 11
+    paddingTop: 6
+    paddingBottom: 5
+  - name: "\uB9AC\uD504\uB77C\uC988"
+    x: 2351
+    y: 3272
+    width: 508
+    height: 824
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: "\uC288\uD53C"
     x: 0
     y: 1234
@@ -53,6 +92,32 @@ MonoBehaviour:
     paddingRight: 13
     paddingTop: 1
     paddingBottom: 1
+  - name: "\uC2AC\uB77C\uBB34"
+    x: 0
+    y: 231
+    width: 965
+    height: 1002
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 9
+    paddingTop: 12
+    paddingBottom: 6
+  - name: "\uC544\uB974\uB9C8\uCFE4"
+    x: 1483
+    y: 2017
+    width: 720
+    height: 1009
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 11
+    paddingTop: 16
+    paddingBottom: 13
   - name: "\uD0C0\uB9AC"
     x: 1875
     y: 570
@@ -79,58 +144,6 @@ MonoBehaviour:
     paddingRight: 3
     paddingTop: 5
     paddingBottom: 0
-  - name: "\uC544\uB974\uB9C8\uCFE4"
-    x: 1483
-    y: 2017
-    width: 720
-    height: 1009
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 2
-    paddingRight: 11
-    paddingTop: 16
-    paddingBottom: 13
-  - name: "\uB9AC\uD504\uB77C\uC988"
-    x: 2351
-    y: 3272
-    width: 508
-    height: 824
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: "\uACE8\uB808\uBBF8"
-    x: 2204
-    y: 2154
-    width: 483
-    height: 1011
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 2
-    paddingRight: 1
-    paddingTop: 1
-    paddingBottom: 2
-  - name: Nanum
-    x: 1483
-    y: 1506
-    width: 787
-    height: 510
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 237
-    paddingTop: 2
-    paddingBottom: 0
   - name: "\uD53C\uCF54"
     x: 966
     y: 267
@@ -144,18 +157,5 @@ MonoBehaviour:
     paddingRight: 8
     paddingTop: 10
     paddingBottom: 7
-  - name: "\uB9AC\uB178"
-    x: 1051
-    y: 3027
-    width: 709
-    height: 1069
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 18
-    paddingRight: 11
-    paddingTop: 6
-    paddingBottom: 5
   mPixelSize: 1
   mReplacement: {fileID: 0}

@@ -8,6 +8,7 @@ public class GUITestScrollView : MonoBehaviour
     private UIReuseGrid grid;
     public List<Item> inventory;
     public List<Item> items=new List<Item>();
+    public List<Item> categoryinventory;
     public GameObject copydb;
     public UIReuseGrid Grid
     {
@@ -20,12 +21,16 @@ public class GUITestScrollView : MonoBehaviour
     void Awake()
     {
 		grid = GetComponentInChildren<UIReuseGrid>();
+        if(grid==null)
+        {
+            Debug.Log("grid == null");
+        }
         
     }
 
 	void Start () 
     {
-        items = copydb.GetComponent<CPGameDataBase>().cpcards_Inventory;
+        items = CPGameDataBase.inst.GetComponent<CPGameDataBase>().cpcards_Inventory;
         inventory = GameDataBase.Instance.cards_Inventory;
         count = inventory.Count;
         // 임의의 데이터가 생성해서 gird에 추가시켜둔다.
@@ -54,6 +59,39 @@ public class GUITestScrollView : MonoBehaviour
 	}
     public void EV_UpdateAll()
     {
+        categoryinventory.Clear();
+        if (UIButton.current.gameObject.CompareTag("Wood"))
+        {
+            CPGameDataBase.inst.element = Element.Wood;
+        }
+        else if (UIButton.current.gameObject.CompareTag("Stone"))
+        {
+            CPGameDataBase.inst.element = Element.Stone;
+        }
+        else if (UIButton.current.gameObject.CompareTag("Grass"))
+        {
+            CPGameDataBase.inst.element = Element.Grass;
+        }
+        else if (UIButton.current.gameObject.CompareTag("Chaos"))
+        {
+            CPGameDataBase.inst.element = Element.Chaos;
+        }
+        else if (UIButton.current.gameObject.CompareTag("None"))
+        {
+            CPGameDataBase.inst.element = Element.None;
+        }
+        foreach (Item card in CPGameDataBase.inst.cpcards_Inventory)
+        {
+            if (CPGameDataBase.inst.element == Element.None)
+            {
+                categoryinventory.Add(card);
+            }
+            else if (card.cardElement == CPGameDataBase.inst.element)
+            {
+                categoryinventory.Add(card);
+            }
+        }
+        CPGameDataBase.inst.testScrollView.items = categoryinventory;
         grid.ClearItem(true);
         inventory = items;
         count = inventory.Count;

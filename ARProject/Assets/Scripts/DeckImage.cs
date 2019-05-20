@@ -6,16 +6,15 @@ public class DeckImage : MonoBehaviour
 {
     public int slotnumber;
     public UISprite sprite;
-    public CPGameDataBase copydb;
     // Start is called before the first frame update
     void Start()
     {
-        EventDelegate.Add(DeleteDeck.eventdel, DeckReImage);
-        if (copydb.cpcards_Deck.Count>slotnumber)
+        EventDelegate.Add(DeleteDeck.eventdel, DeckReImage);//이벤트 델리게이트에 덱이미지를 재조정하는 함수추가
+        if (CPGameDataBase.inst.cpcards_Deck.Count>slotnumber)
         {
             sprite = GetComponent<UISprite>();
-             sprite.spriteName= copydb.cpcards_Deck[slotnumber].cardName;
-            GetComponent<UIButton>().normalSprite = copydb.cpcards_Deck[slotnumber].cardName;
+             sprite.spriteName= CPGameDataBase.inst.cpcards_Deck[slotnumber].cardName;
+            GetComponent<UIButton>().normalSprite = CPGameDataBase.inst.cpcards_Deck[slotnumber].cardName;
             
         }
         else
@@ -27,12 +26,12 @@ public class DeckImage : MonoBehaviour
     }
     public void DeckReImage()
     {
-        if (copydb.cpcards_Deck.Count > slotnumber)
+        if (CPGameDataBase.inst.cpcards_Deck.Count > slotnumber)
         {
             
             sprite = GetComponent<UISprite>();
-            sprite.spriteName = copydb.cpcards_Deck[slotnumber].cardName;
-            GetComponent<UIButton>().normalSprite = copydb.cpcards_Deck[slotnumber].cardName;
+            sprite.spriteName = CPGameDataBase.inst.cpcards_Deck[slotnumber].cardName;
+            GetComponent<UIButton>().normalSprite = CPGameDataBase.inst.cpcards_Deck[slotnumber].cardName;
         }
         else
         {

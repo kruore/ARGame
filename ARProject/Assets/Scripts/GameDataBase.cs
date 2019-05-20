@@ -21,7 +21,7 @@ public class GameDataBase : Singleton<GameDataBase>
 
     public void Awake()
     {
-        DBName = "testDB - 복사본";
+        DBName = "testDB";
         StartCoroutine(Permissioncheck());
 
         Setplatform();
@@ -176,7 +176,7 @@ public class GameDataBase : Singleton<GameDataBase>
         dbconn.Close();
         dbconn = null;
     }
-    public void DS_DeckReSetting()
+    public void DS_DeckReSetting()//덱세이브
     {
         IDbConnection dbconn;
         dbconn = (IDbConnection)new SqliteConnection(conn);
@@ -204,7 +204,7 @@ public class GameDataBase : Singleton<GameDataBase>
         dbconn.Close();
         dbconn = null;
     }
-    public void DS_InventoryReSetting()
+    public void DS_InventoryReSetting()//인벤토리 세이브
     {
         IDbConnection dbconn;
         dbconn = (IDbConnection)new SqliteConnection(conn);
