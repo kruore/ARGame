@@ -9,7 +9,7 @@ public class AddDeckButton : MonoBehaviour
     //인벤토리에서 덱에 카드를 집어넣으며 코스트, 장수가 합당한지 검출
     public void Deckinsert()
     {
-        Item newcard = new Item(item.num, item.cost,  item.Damage, item.ImgName, item.element,item.rank);
+        Item newcard = new Item(item.num, item.cost,  item.damage, item.ImgName, item.element,item.rank);
         if (CPGameDataBase.inst.cpcards_Deck.Count < 10 && (CPGameDataBase.inst.deckcost + newcard.cardCost) < 30)
         {
             CPGameDataBase.inst.cpcards_Deck.Add(newcard);

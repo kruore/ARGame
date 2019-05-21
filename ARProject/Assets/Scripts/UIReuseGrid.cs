@@ -883,6 +883,7 @@ public class UIReuseGrid : UIWidgetContainer
 #endif
 						m_listData[i].Index = i;
 						cell.UpdateData( m_listData[i] );
+                        
 					}
 					else if( i == endIndex-1 && cell.transform.localPosition.x == Min )
 					{

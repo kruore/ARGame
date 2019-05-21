@@ -3,18 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 
 // 자신만의 셀 데이터를 정의하자.
-public class ItemCellData : IReuseCellData{
+public class ItemCellData : IReuseCellData {
 
-	#region IReuseCellData
-	public int m_Index;
-	public int Index{
-		get{
-			return m_Index;
-		}
-		set{
-			m_Index = value;
-		}
-	}
+    #region IReuseCellData
+    public int m_Index;
+    public int Index {
+        get {
+            return m_Index;
+        }
+        set {
+            m_Index = value;
+        }
+    }
     public string m_ImgName;
     public string ImgName
     {
@@ -27,16 +27,16 @@ public class ItemCellData : IReuseCellData{
             m_ImgName = value;
         }
     }
-    public int m_Damage;
-    public int Damage
+    public int m_damage;
+    public int damage
     {
         get
         {
-            return m_Damage;
+            return m_damage;
         }
         set
         {
-            m_Damage = value;
+            m_damage = value;
         }
     }
     public int m_num;
@@ -86,6 +86,18 @@ public class ItemCellData : IReuseCellData{
         set
         {
             m_cost = value;
+        }
+    }
+    public bool m_check;
+    public bool check
+    {
+        get
+        {
+            return m_check;
+        }
+        set
+        {
+            m_check = value;
         }
     }
     #endregion

@@ -38,11 +38,11 @@ public class GUITestScrollView : MonoBehaviour
         for ( int i=0; i< inventory.Count; ++i )
         {
 			ItemCellData cell = new ItemCellData();
-			cell.Index = inventory[i].cardInventoryNum;
+			cell.num = inventory[i].cardInventoryNum;
 			cell.ImgName = inventory[i].cardName;
             cell.cost = inventory[i].cardCost;
             cell.element = inventory[i].cardElement;
-            cell.Damage = inventory[i].cardDamage;
+            cell.damage = inventory[i].cardDamage;
             cell.rank = inventory[i].cardRank;
             grid.AddItem( cell, false );
         }
@@ -80,15 +80,33 @@ public class GUITestScrollView : MonoBehaviour
         {
             CPGameDataBase.inst.element = Element.None;
         }
-        foreach (Item card in CPGameDataBase.inst.cpcards_Inventory)
+        if (CPGameDataBase.inst.currentcpDBstate == cpDBState.Deactivecard)
         {
-            if (CPGameDataBase.inst.element == Element.None)
+            foreach (Item card in GameDataBase.Inst.cards)
             {
-                categoryinventory.Add(card);
+                if (CPGameDataBase.inst.element == Element.None)
+                {
+                    categoryinventory.Add(card);
+                }
+                else if (card.cardElement == CPGameDataBase.inst.element)
+                {
+                    categoryinventory.Add(card);
+                }
             }
-            else if (card.cardElement == CPGameDataBase.inst.element)
+            
+        }
+        else
+        {
+            foreach (Item card in CPGameDataBase.inst.cpcards_Inventory)
             {
-                categoryinventory.Add(card);
+                if (CPGameDataBase.inst.element == Element.None)
+                {
+                    categoryinventory.Add(card);
+                }
+                else if (card.cardElement == CPGameDataBase.inst.element)
+                {
+                    categoryinventory.Add(card);
+                }
             }
         }
         CPGameDataBase.inst.testScrollView.items = categoryinventory;
@@ -100,12 +118,13 @@ public class GUITestScrollView : MonoBehaviour
         for (int i = 0; i < inventory.Count; ++i)
         {
             ItemCellData cell = new ItemCellData();
-            cell.Index = inventory[i].cardInventoryNum;
+            cell.Index= inventory[i].cardInventoryNum;
+            cell.num = inventory[i].cardInventoryNum;
             cell.ImgName = inventory[i].cardName;
             cell.rank = inventory[i].cardRank;
             cell.cost = inventory[i].cardCost;
             cell.element = inventory[i].cardElement;
-            cell.Damage = inventory[i].cardDamage;
+            cell.damage = inventory[i].cardDamage;
             grid.AddItem(cell, false);
         }
         grid.UpdateAllCellData();

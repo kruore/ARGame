@@ -1,10 +1,10 @@
 ﻿
 public interface IReuseCellData
 {
-	int Index{
-		get;
-		set;
-	}
+    int Index {
+        get;
+        set;
+    }
     string ImgName
     {
         get;
@@ -27,6 +27,16 @@ public interface IReuseCellData
         set;
     }
     int cost
+    {
+        get;
+        set;
+    }
+    bool check
+    {
+        get;
+        set;
+    }
+    int damage
     {
         get;
         set;

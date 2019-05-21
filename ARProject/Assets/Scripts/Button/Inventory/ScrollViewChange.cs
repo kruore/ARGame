@@ -8,5 +8,6 @@ public class ScrollViewChange : MonoBehaviour
    public void ChangeScrolllView()
     {
         CPGameDataBase.inst.testScrollView = scrollview;
+        CPGameDataBase.inst.currentcpDBstate = cpDBState.Deckmaking;
     }
 }

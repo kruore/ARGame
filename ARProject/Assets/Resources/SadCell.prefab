@@ -267,7 +267,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aa: {fileID: 0}
-  copydb: {fileID: 0}
 --- !u!114 &8294092961259877494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511514c10ddced04d98f31671acfbc42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectcheck: 1
 --- !u!114 &8294092961259877495
 MonoBehaviour:
   m_ObjectHideFlags: 0

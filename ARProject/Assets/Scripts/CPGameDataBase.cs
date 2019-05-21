@@ -13,9 +13,11 @@ public class CPGameDataBase : MonoBehaviour
     public UILabel CostLabel;
     public List<Item> cpcards_Deck = new List<Item>();
     public List<Item> cpcards_Inventory = new List<Item>();
-    public List<Item> DestoryItem = new List<Item>();
+    public List<int> DestoryItem = new List<int>();
+    public List<Item> cpcards = new List<Item>();
     int m_deckcost;
     public cpDBState currentcpDBstate;
+    //public List<Item> 
     
     public int deckcost
     {
@@ -48,6 +50,7 @@ public class CPGameDataBase : MonoBehaviour
         {
             gameObject.GetComponent<CPGameDataBase>().cpcards_Inventory.Add(inven);
         }
+        cpcards = GameDataBase.Inst.cards;
         deckcost = GameDataBase.Inst.deckcost;
     }
 }
