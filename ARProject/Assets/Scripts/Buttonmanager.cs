@@ -12,6 +12,10 @@ public class Buttonmanager : Singleton<Buttonmanager>
     {
         SceneManager.LoadScene("Inventory");
     }
+    public void Mainscene()
+    {
+        SceneManager.LoadScene("Main");
+    }
     public void SaveDB()
     {
         if (CPGameDataBase.inst.cpcards_Deck.Count == 10)
@@ -81,6 +85,7 @@ public class Buttonmanager : Singleton<Buttonmanager>
     }
     public void Elementlist()
     {
+        
         CPGameDataBase.inst.testScrollView.EV_UpdateAll();
     }
     public void paneldisable()

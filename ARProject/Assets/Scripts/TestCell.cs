@@ -40,13 +40,13 @@ public class TestCell : UIReuseScrollViewCell
             {
                 if (item.cardName == CellData.ImgName)
                 {
-                    citem.check = true;
+                    citem.check = false;
                     check = citem.check;
                     break;
                 }
                 else
                 {
-                    citem.check = false;
+                    citem.check = true;
                     check = citem.check;
                 }
             }

@@ -60,7 +60,11 @@ public class GUITestScrollView : MonoBehaviour
     public void EV_UpdateAll()
     {
         categoryinventory.Clear();
-        if (UIButton.current.gameObject.CompareTag("Wood"))
+        if (UIButton.current.gameObject.CompareTag("Untagged"))
+        {
+            //CPGameDataBase.inst.element = Element.None;
+        }
+        else if (UIButton.current.gameObject.CompareTag("Wood"))
         {
             CPGameDataBase.inst.element = Element.Wood;
         }

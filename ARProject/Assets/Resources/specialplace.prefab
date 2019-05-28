@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2940017448468370462}
   - component: {fileID: 4460210268944190954}
   - component: {fileID: 9162607545473526875}
+  - component: {fileID: 969559937247934824}
   m_Layer: 0
   m_Name: specialplace
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9030870968978368378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6949012, y: 0.21107747, z: -0.02022025}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -91,3 +92,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &969559937247934824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9030870968978368378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4868e3c39c18f14ba847897e1a276a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placedata:
+    Number: 0
+    Name: 
+    latitude: 0
+    longitude: 0
+    element: 0
+    quad: 
+    placestate: 0
+  objectindex: 0

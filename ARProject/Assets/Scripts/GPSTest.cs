@@ -8,10 +8,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 public class GPSTest : MonoBehaviour
 {
+    public static GPSTest inst;
     public static string b;
     public static string c;
     string url = "";
-    public double lat, lon ;
+    public static double lat, lon ;
     LocationInfo li;
     public string strBaseURL = "https://maps.googleapis.com/maps/api/staticmap?center=";
     public int zoom = 17;
@@ -87,6 +88,7 @@ public class GPSTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        inst = this;
         b = "0";
         StartCoroutine(StartLocationServiece());
     }
@@ -292,14 +294,6 @@ public class GPSTest : MonoBehaviour
                 double longi = (double)(quadplaces[i].longitude - Longitude);
                 double latti = (double)(quadplaces[i].latitude - Latitude);
                 placeobject[i].transform.position = new Vector3((float)longi * 50000, 2, (float)latti * 50000);
-            if (longi < 0.0003 && latti < 0.0003)
-                {
-                    quadplaces[i].placestate = true;
-                }
-                else
-                {
-                    quadplaces[i].placestate = false;
-                }
                 Debug.Log("moving");
             }
 
@@ -320,6 +314,7 @@ public class GPSTest : MonoBehaviour
             foreach (GpsData place in GameDataBase.Instance.currentquadplaces)
             {
                 GameObject ppp = Instantiate(Resources.Load("specialplace") as GameObject);
+                ppp.GetComponent<Collectingobject>().placedata = place;
                 ppp.transform.position = new Vector3(0, 0, 0);
                 placeobject.Add(ppp);
                 Debug.Log("setting");

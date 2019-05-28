@@ -16,9 +16,71 @@ public class CPGameDataBase : MonoBehaviour
     public List<int> DestoryItem = new List<int>();
     public List<Item> cpcards = new List<Item>();
     int m_deckcost;
-    public cpDBState currentcpDBstate;
-    //public List<Item> 
-    
+    public cpDBState m_currentcpDBstate;
+    public cpDBState currentcpDBstate
+    {
+        get { return m_currentcpDBstate; }
+        set
+        {
+            switch (value)
+            {
+                case cpDBState.Deactivecard:
+                    {
+                        DestoryItem.Clear();
+                        if (m_currentcpDBstate != value)
+                        {
+                            m_currentcpDBstate = value;
+                            testScrollView.EV_UpdateAll();
+                        }
+                    }
+                    break;
+                case cpDBState.Deckmaking:
+                    {
+                        DestoryItem.Clear();
+                        if (m_currentcpDBstate != value)
+                        {
+                            m_currentcpDBstate = value;
+                            testScrollView.EV_UpdateAll();
+                        }
+                    }
+                    break;
+                case cpDBState.Multiselect:
+                    {
+                        DestoryItem.Clear();
+                        if (m_currentcpDBstate != value)
+                        {
+                            m_currentcpDBstate = value;
+                            testScrollView.EV_UpdateAll();
+                        }
+                    }
+                    break;
+                case cpDBState.Nomal:
+                    {
+                        DestoryItem.Clear();
+                        if (m_currentcpDBstate != value)
+                        {
+                            m_currentcpDBstate = value;
+
+                        }
+                    }
+                    break;
+                case cpDBState.None:
+                    {
+                        DestoryItem.Clear();
+                        if (m_currentcpDBstate != value)
+                        {
+                            m_currentcpDBstate = value;
+
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    //public List<Item>
+
     public int deckcost
     {
         get
@@ -42,13 +104,15 @@ public class CPGameDataBase : MonoBehaviour
     }
     public void CpReSet()
     {
+        inst.cpcards_Deck.Clear();
+        inst.cpcards_Inventory.Clear();
         foreach (Item deck in GameDataBase.Inst.cards_Deck)
         {
-            gameObject.GetComponent<CPGameDataBase>().cpcards_Deck.Add(deck);
+            inst.cpcards_Deck.Add(deck);
         }
         foreach (Item inven in GameDataBase.Inst.cards_Inventory)
         {
-            gameObject.GetComponent<CPGameDataBase>().cpcards_Inventory.Add(inven);
+            inst.cpcards_Inventory.Add(inven);
         }
         cpcards = GameDataBase.Inst.cards;
         deckcost = GameDataBase.Inst.deckcost;

@@ -10,11 +10,13 @@ public class CPcardMultSelect : MonoBehaviour
         {
             CPGameDataBase.inst.currentcpDBstate = cpDBState.Multiselect;
             CPGameDataBase.inst.testScrollView.EV_UpdateAll();
+            UIButton.current.gameObject.GetComponentInChildren<UILabel>().text = "취소";
         }
         else
         {
             CPGameDataBase.inst.currentcpDBstate = cpDBState.Deckmaking;
             CPGameDataBase.inst.testScrollView.EV_UpdateAll();
+            UIButton.current.gameObject.GetComponentInChildren<UILabel>().text = "다중 선택";
         }
     }
 }

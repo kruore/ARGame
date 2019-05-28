@@ -18,7 +18,6 @@ public class GameDataBase : Singleton<GameDataBase>
     public string DBName;
     public static string conn = string.Empty;
     public static string a ="0";
-
     public void Awake()
     {
         DBName = "testDB";
@@ -273,18 +272,6 @@ public class GameDataBase : Singleton<GameDataBase>
         sqlQuery += "update Inventory set Num = " + (cards_Inventory.Count + 1) + " where Num = " + DBnum + "; ";
         dbcmd.CommandText = sqlQuery;
         IDataReader reader = dbcmd.ExecuteReader();
-        //while (reader.Read())
-        //{
-        //    int Num = reader.GetInt32(0);
-        //    string Races = reader.GetString(1);
-        //    string Rarelty = reader.GetString(2);
-        //    string Type = reader.GetString(3);
-        //    int HP = reader.GetInt32(4);
-        //    int Depensive = reader.GetInt32(5);
-        //    int MoveRange = reader.GetInt32(6);
-        //    int AttackRange = reader.GetInt32(7);
-        //    inventory_places.Add(new GpsData(Num, Races, Rarelty, Type, HP, Depensive, MoveRange, AttackRange));
-        //}
         reader.Close();
         reader = null;
         dbcmd.Dispose();

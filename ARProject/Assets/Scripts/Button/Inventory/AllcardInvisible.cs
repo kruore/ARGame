@@ -7,6 +7,6 @@ public class AllcardInvisible : MonoBehaviour
     public void Allcard()
     {
         CPGameDataBase.inst.currentcpDBstate = cpDBState.Deactivecard;
-        CPGameDataBase.inst.testScrollView.EV_UpdateAll();
+        
     }
 }
