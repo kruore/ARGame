@@ -190,14 +190,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 270
-  mHeight: 490
+  mWidth: 250
+  mHeight: 450
   mDepth: -1
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.5510204
+  aspectRatio: 0.5555556
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -211,7 +211,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 73199c7803677634089a0106b929f8e9, type: 2}
+  mAtlas: {fileID: 11400000, guid: ee612666e1987554f83d8efd65c7018a, type: 2}
   mSpriteName: background
   mFixedAspect: 0
   mFillCenter: 1

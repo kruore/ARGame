@@ -8,8 +8,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 public class GPS : MonoBehaviour
 {
+    public static GPS inst;
+    public static string b;
+    public static string c;
     string url = "";
-    public double lat = 37.713364f, lon = 126.890129f;
+    public static double lat, lon;
     LocationInfo li;
     public string strBaseURL = "https://maps.googleapis.com/maps/api/staticmap?center=";
     public int zoom = 17;
@@ -28,9 +31,6 @@ public class GPS : MonoBehaviour
     private double west = 131.872799f, east = 124.609875f, south = 33.112479f, north = 38.617382f;
     private string currenttree = "44444444";
     string nowposition;
-    public static string test;
-    public static string finddingstring;
-    public static string mystring;
     public string sCurrenttree
     {
         set
@@ -47,7 +47,6 @@ public class GPS : MonoBehaviour
                 }
                 Placesetting();
                 Placemove();
-                test = value;
             }
         }
         get { return currenttree; }
@@ -59,9 +58,10 @@ public class GPS : MonoBehaviour
     {
         set
         {
-            if (latitude != value)
+            if (0.0001 < Mathf.Abs((float)latitude - (float)value))
             {
                 latitude = value;
+                StartCoroutine(UpdateLocationServiece());
             }
         }
         get { return latitude; }
@@ -72,79 +72,122 @@ public class GPS : MonoBehaviour
     {
         set
         {
-            if (longitude != value)
+            if (0.0001 < Mathf.Abs((float)longitude - (float)value))
             {
                 longitude = value;
+                StartCoroutine(UpdateLocationServiece());
             }
         }
         get { return longitude; }
     }
 
-
+    bool mapcorutine = true;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Input.compass.enabled = true;
+        inst = this;
+        b = "0";
         StartCoroutine(StartLocationServiece());
-        StartCoroutine(StartcompassServiece());
-        gyro = Input.gyro;
-        gyro.enabled = true;
-        sCurrenttree = "44444444";
     }
 
     private IEnumerator StartLocationServiece()
     {
-        while (true)
+        if (!Input.location.isEnabledByUser)
         {
+            yield break;
+        }
+        b = "0.1";
+        Input.location.Start();
+        b = "0.2";
+        while (Input.location.status == LocationServiceStatus.Initializing)
+        {
+            yield return new WaitForSeconds(1f);
+        }
+        b = "0.3";
+        if (Input.location.status == LocationServiceStatus.Failed)
+        {
+            yield break;
+        }
+        b = "0.4";
+        Input.compass.enabled = true;
+        b = "0.5";
+        c = "0";
+        StartCoroutine(StartcompassServiece());
+        b = "0.6";
+        gyro = Input.gyro;
+        gyro.enabled = true;
+        sCurrenttree = "44444444";
+        nowposition = "";
+        Latitude = Input.location.lastData.latitude;
+        Longitude = Input.location.lastData.longitude;
+        b = "0.7";
+        //Latitude = 37.713364;
+        //Longitude = 126.890129;
+        Locationquadtree(west, east, north, south);
+        sCurrenttree = nowposition;
+        Debug.Log(sCurrenttree);
+        //nowposition = "";
+        //Locationquadtree(west, east, north, south);
 
-            if (!Input.location.isEnabledByUser)
-            {
-                yield break;
-            }
-            Input.location.Start();
-            while (Input.location.status == LocationServiceStatus.Initializing)
-            {
-                yield return new WaitForSeconds(1f);
-            }
-            if (Input.location.status == LocationServiceStatus.Failed)
-            {
-                yield break;
-            }
+        url = "https://maps.googleapis.com/maps/api/staticmap"
+            + "?center=" + Latitude.ToString() + "," + Longitude.ToString()
+            + "&zoom=" + zoom
+            + "&size=" + mapWidth + "x" + mapHeight
+            + "&scale=" + scale
+            + "&maptype=" + mapselected
+            + "&key=" + GoogleAPIKey;
+        Debug.Log(url);
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+        yield return www.SendWebRequest();
+        Rect rect = new Rect(0, 0, ((DownloadHandlerTexture)www.downloadHandler).texture.width, ((DownloadHandlerTexture)www.downloadHandler).texture.height);
+        SpriteRenderer img = gameObject.GetComponent<SpriteRenderer>();
+        img.sprite = Sprite.Create(((DownloadHandlerTexture)www.downloadHandler).texture, rect, new Vector2(0.5f, 0.5f));
+        b = "0.8";
+        Placemove();
+        b = "0.9";
+        mapcorutine = false;
+        Resources.UnloadUnusedAssets();
+        b = "0.a";
+    }
+    private IEnumerator UpdateLocationServiece()
+    {
 
-            nowposition = "";
+        count++;
+        if (mapcorutine)
+            yield break;
+        mapcorutine = true;
+        nowposition = "";
+        Locationquadtree(west, east, north, south);
+        sCurrenttree = nowposition;
+        Debug.Log(sCurrenttree);
+        url = "https://maps.googleapis.com/maps/api/staticmap"
+            + "?center=" + Latitude.ToString() + "," + Longitude.ToString()
+            + "&zoom=" + zoom
+            + "&size=" + mapWidth + "x" + mapHeight
+            + "&scale=" + scale
+            + "&maptype=" + mapselected
+            + "&key=" + GoogleAPIKey;
+        Debug.Log(url);
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+        yield return www.SendWebRequest();
+        Rect rect = new Rect(0, 0, ((DownloadHandlerTexture)www.downloadHandler).texture.width, ((DownloadHandlerTexture)www.downloadHandler).texture.height);
+        SpriteRenderer img = gameObject.GetComponent<SpriteRenderer>();
+        img.sprite = Sprite.Create(((DownloadHandlerTexture)www.downloadHandler).texture, rect, new Vector2(0.5f, 0.5f));
+        Placemove();
+        mapcorutine = false;
+        Resources.UnloadUnusedAssets();
+    }
+    private void Update()
+    {
+        if (mapcorutine == false)
+        {
             Latitude = Input.location.lastData.latitude;
             Longitude = Input.location.lastData.longitude;
-            //Latitude = 37.713364;
-            //Longitude = 126.890129;
-            Locationquadtree(west, east, north, south);
-            sCurrenttree = nowposition;
-            Debug.Log(sCurrenttree);
-            Input.location.Stop();
-            //nowposition = "";
-            //Locationquadtree(west, east, north, south);
-            count++;
-            url = "https://maps.googleapis.com/maps/api/staticmap"
-                + "?center=" + Latitude.ToString() + "," + Longitude.ToString()
-                + "&zoom=" + zoom
-                + "&size=" + mapWidth + "x" + mapHeight
-                + "&scale=" + scale
-                + "&maptype=" + mapselected
-                + "&key=" + GoogleAPIKey;
-            Debug.Log(url);
-            UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
-            yield return www.SendWebRequest();
-            Rect rect = new Rect(0, 0, ((DownloadHandlerTexture)www.downloadHandler).texture.width, ((DownloadHandlerTexture)www.downloadHandler).texture.height);
-            SpriteRenderer img = gameObject.GetComponent<SpriteRenderer>();
-            img.sprite = Sprite.Create(((DownloadHandlerTexture)www.downloadHandler).texture, rect, new Vector2(0.5f, 0.5f));
-            Placemove();
-            Resources.UnloadUnusedAssets();
-            yield return new WaitForSecondsRealtime(3);
         }
     }
-
     private bool Locationquadtree(double dwest, double deast, double dnorth, double dsouth)
     {
         bool checklon;
@@ -228,7 +271,8 @@ public class GPS : MonoBehaviour
         while (true)
         {
             player.transform.rotation = Quaternion.Euler(0, Input.compass.trueHeading, 0);
-            yield return new WaitForSecondsRealtime(1);
+            c = Input.compass.trueHeading.ToString();
+            yield return null;
         }
     }
     //Start is called before the first frame update
@@ -249,19 +293,10 @@ public class GPS : MonoBehaviour
             {
                 double longi = (double)(quadplaces[i].longitude - Longitude);
                 double latti = (double)(quadplaces[i].latitude - Latitude);
-                placeobject[i].transform.position = new Vector3((float)longi * 40000, 2, (float)latti * 50000);
-                if (longi < 0.0003 && latti < 0.0003)
-                {
-                    quadplaces[i].placestate = true;
-                }
-                else
-                {
-                    quadplaces[i].placestate = false;
-                }
+                placeobject[i].transform.position = new Vector3((float)longi * 50000, 2, (float)latti * 50000);
                 Debug.Log("moving");
-                mystring = longi+","+ latti;
             }
-            
+
         }
         else
         {
@@ -279,6 +314,7 @@ public class GPS : MonoBehaviour
             foreach (GpsData place in GameDataBase.Instance.currentquadplaces)
             {
                 GameObject ppp = Instantiate(Resources.Load("specialplace") as GameObject);
+                ppp.GetComponent<Collectingobject>().placedata = place;
                 ppp.transform.position = new Vector3(0, 0, 0);
                 placeobject.Add(ppp);
                 Debug.Log("setting");

@@ -46,8 +46,20 @@ public class TestCell : UIReuseScrollViewCell
                 }
                 else
                 {
-                    citem.check = true;
-                    check = citem.check;
+                    foreach (Item item0 in GameDataBase.Inst.cards_Deck)
+                    {
+                        if (item0.cardName == CellData.ImgName)
+                        {
+                            citem.check = false;
+                            check = citem.check;
+                            break;
+                        }
+                        else
+                        {
+                            citem.check = true;
+                            check = citem.check;
+                        }
+                    }
                 }
             }
         }

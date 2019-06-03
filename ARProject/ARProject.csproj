@@ -646,29 +646,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ConsolePro\ConsoleProDebug.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\ConsoleProRemoteServer.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\FastBitConverter.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\INetEventListener.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NatPunchModule.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetConstants.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetDataReader.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetDataWriter.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetDebug.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetEndPoint.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetManager.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetPacket.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetPacketPool.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetPeer.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetPeerCollection.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetSerializer.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetSocket.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetThread.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetUtils.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NtpSyncModule.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\ReliableChannel.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\SequencedChannel.cs" />
-    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\SimpleChannel.cs" />
     <Compile Include="Assets\GoogleARCore\Examples\AugmentedFaces\Scripts\ARCoreAugmentedFaceMeshFilter.cs" />
     <Compile Include="Assets\GoogleARCore\Examples\AugmentedFaces\Scripts\ARCoreAugmentedFaceRig.cs" />
     <Compile Include="Assets\GoogleARCore\Examples\AugmentedFaces\Scripts\AugmentedFacesExampleController.cs" />
@@ -855,12 +832,6 @@
     <Compile Include="Assets\GoogleARCore\SDK\Scripts\XPSession.cs" />
     <Compile Include="Assets\GoogleARCore\SDK\Scripts\XPSessionStatus.cs" />
     <Compile Include="Assets\GoogleARCore\SDK\Scripts\XPTrackingState.cs" />
-    <Compile Include="Assets\Low Poly Rocks Pack\Bonus Assets\Scripts\LowPolyRocks_CameraControl.cs" />
-    <Compile Include="Assets\Low Poly Rocks Pack\Bonus Assets\Scripts\LowPolyRocks_CloudsControl.cs" />
-    <Compile Include="Assets\Low Poly Rocks Pack\Bonus Assets\Scripts\LowPolyRocks_FireLightControl.cs" />
-    <Compile Include="Assets\Low Poly Rocks Pack\Bonus Assets\Scripts\LowPolyRocks_SunControl.cs" />
-    <Compile Include="Assets\Low Poly Ultimate Pack\- Scripts\CameraSmooth.cs" />
-    <Compile Include="Assets\Low Poly Ultimate Pack\- Scripts\Move.cs" />
     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipItems.cs" />
     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipRandomItem.cs" />
     <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\UICursor.cs" />
@@ -1004,9 +975,20 @@
     <Compile Include="Assets\NGUI\Scripts\UI\UITexture.cs" />
     <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
     <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
-    <Compile Include="Assets\Scripts\AddDeckButton.cs" />
+    <Compile Include="Assets\Scripts\Adventure\Collectingobject.cs" />
+    <Compile Include="Assets\Scripts\AR\Objectrotate.cs" />
+    <Compile Include="Assets\Scripts\Button\Inventory\AddDeckButton.cs" />
+    <Compile Include="Assets\Scripts\Button\Inventory\AllcardInvisible.cs" />
+    <Compile Include="Assets\Scripts\Button\Inventory\CardDismantiling.cs" />
+    <Compile Include="Assets\Scripts\Button\Inventory\CPcardMultSelect.cs" />
+    <Compile Include="Assets\Scripts\Button\Inventory\Cpdbstatenomal.cs" />
+    <Compile Include="Assets\Scripts\Button\Inventory\RadioButton.cs" />
+    <Compile Include="Assets\Scripts\Button\Inventory\ScrollViewChange.cs" />
+    <Compile Include="Assets\Scripts\Button\Inventory\UnrecordedCard.cs" />
+    <Compile Include="Assets\Scripts\Button\Public\SetActiveObject.cs" />
     <Compile Include="Assets\Scripts\Buttonmanager.cs" />
     <Compile Include="Assets\Scripts\cameralook.cs" />
+    <Compile Include="Assets\Scripts\Cardcheck.cs" />
     <Compile Include="Assets\Scripts\CPGameDataBase.cs" />
     <Compile Include="Assets\Scripts\DeckImage.cs" />
     <Compile Include="Assets\Scripts\DeleteDeck.cs" />
@@ -1020,10 +1002,12 @@
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\ItemCellData.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
+    <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\TestCell.cs" />
     <Compile Include="Assets\Scripts\testscript\test0.cs" />
     <Compile Include="Assets\Scripts\testscript\test1.cs" />
     <Compile Include="Assets\Scripts\testscript\test2.cs" />
+    <Compile Include="Assets\Scripts\testscript\testbutton.cs" />
     <Compile Include="Assets\Scripts\touchevent.cs" />
     <Compile Include="Assets\Scripts\UIReuseDragScrollView.cs" />
     <Compile Include="Assets\Scripts\UIReuseGrid.cs" />
@@ -1039,9 +1023,6 @@
     <None Include="Assets\GoogleARCore\Examples\Common\Materials\Shaders\PointCloud.shader" />
     <None Include="Assets\GoogleARCore\Examples\ComputerVision\Materials\EdgeDetectionBackground.shader" />
     <None Include="Assets\GoogleARCore\SDK\Materials\ARBackground.shader" />
-    <None Include="Assets\Low Poly Rocks Pack\Demo\Asset _Scenes\Info.txt" />
-    <None Include="Assets\My Production Line\Elemental Cards Bundle\Assets\Fonts\Germania_One\OFL.txt" />
-    <None Include="Assets\My Production Line\Elemental Cards Bundle\Assets\Fonts\Ropa_Sans\OFL.txt" />
     <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
     <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
     <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
@@ -1083,9 +1064,6 @@
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
-    <None Include="Assets\Optimize SDKohaku-Chanz\Readme_Optimize_SD Kohaku-Chanz.txt" />
-    <None Include="Assets\Optimize SDKohaku-Chanz\Shader\Unitychan_chara_eye.shader" />
-    <None Include="Assets\Optimize SDKohaku-Chanz\Shader\readme.txt" />
     <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver_v1.2.100.0.txt" />
     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
     <None Include="Assets\SDKohaku-Chanz OPV\Readme.txt" />

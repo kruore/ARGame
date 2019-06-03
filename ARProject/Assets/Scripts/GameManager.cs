@@ -6,6 +6,7 @@ public class GameManager : Singleton<GameManager>
 {
     public GpsData currentplace;
     public int objectindex;
+    public string loadingnextscene;
     // Start is called before the first frame update
     void Start()
     {

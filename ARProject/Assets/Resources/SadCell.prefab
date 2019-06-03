@@ -62,14 +62,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 270
-  mHeight: 490
+  mWidth: 250
+  mHeight: 450
   mDepth: 2
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.5510204
+  aspectRatio: 0.5555556
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -83,7 +83,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 73199c7803677634089a0106b929f8e9, type: 2}
+  mAtlas: {fileID: 11400000, guid: ee612666e1987554f83d8efd65c7018a, type: 2}
   mSpriteName: background
   mFixedAspect: 0
   mFillCenter: 1
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 8294092961259877489}
   - component: {fileID: 8294092961259877494}
   - component: {fileID: 8294092961259877495}
-  - component: {fileID: 5327790445325518899}
+  - component: {fileID: 4362858510090094168}
   m_Layer: 8
   m_Name: SadCell
   m_TagString: Untagged
@@ -317,7 +317,7 @@ MonoBehaviour:
     mMethodName: CardCheck
     mParameters: []
     oneShot: 0
---- !u!65 &5327790445325518899
+--- !u!65 &4362858510090094168
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -328,5 +328,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 270, y: 491.15106, z: 0}
-  m_Center: {x: 150, y: -51.313087, z: 0}
+  m_Size: {x: 219.89716, y: 409.3037, z: 0}
+  m_Center: {x: 148.89864, y: -50.209957, z: 0}

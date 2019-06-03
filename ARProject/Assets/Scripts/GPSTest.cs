@@ -12,8 +12,9 @@ public class GPSTest : MonoBehaviour
     public static string b;
     public static string c;
     string url = "";
-    public static double lat, lon ;
+    public static double lat, lon;
     LocationInfo li;
+
     public string strBaseURL = "https://maps.googleapis.com/maps/api/staticmap?center=";
     public int zoom = 17;
     public int mapWidth = 640;
@@ -23,6 +24,7 @@ public class GPSTest : MonoBehaviour
     public int scale = 2;
     public string strPath = "weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R";
     public string GoogleAPIKey = "AIzaSyBPENHUkpJHP24GDn98EaqW8qkZeO86pM0";
+    public string NaverAPIID = "yjj47jszgj";
     public GameObject player;
     public List<GameObject> placeobject;
     private Gyroscope gyro;
@@ -58,7 +60,7 @@ public class GPSTest : MonoBehaviour
     {
         set
         {
-            if (0.0001<Mathf.Abs((float)latitude- (float)value))
+            if (0.0001 < Mathf.Abs((float)latitude - (float)value))
             {
                 latitude = value;
                 StartCoroutine(UpdateLocationServiece());
@@ -123,14 +125,16 @@ public class GPSTest : MonoBehaviour
         nowposition = "";
         Latitude = Input.location.lastData.latitude;
         Longitude = Input.location.lastData.longitude;
-        b = "0.7";
-        //Latitude = 37.713364;
-        //Longitude = 126.890129;
+        //b = "0.7";
+
         Locationquadtree(west, east, north, south);
         sCurrenttree = nowposition;
         Debug.Log(sCurrenttree);
-        //nowposition = "";
-        //Locationquadtree(west, east, north, south);
+        nowposition = "";
+        Locationquadtree(west, east, north, south);
+
+        //Latitude = 37.713364;
+        //Longitude = 126.890129;
 
         url = "https://maps.googleapis.com/maps/api/staticmap"
             + "?center=" + Latitude.ToString() + "," + Longitude.ToString()
@@ -139,6 +143,8 @@ public class GPSTest : MonoBehaviour
             + "&scale=" + scale
             + "&maptype=" + mapselected
             + "&key=" + GoogleAPIKey;
+        //url = "https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=" + NaverAPIID;
+
         Debug.Log(url);
         UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
         yield return www.SendWebRequest();
@@ -154,7 +160,7 @@ public class GPSTest : MonoBehaviour
     }
     private IEnumerator UpdateLocationServiece()
     {
-        
+
         count++;
         if (mapcorutine)
             yield break;
@@ -168,17 +174,21 @@ public class GPSTest : MonoBehaviour
             + "&zoom=" + zoom
             + "&size=" + mapWidth + "x" + mapHeight
             + "&scale=" + scale
-            + "&maptype=" + mapselected
+            + "&maptype=" + mapselected.ToString()
             + "&key=" + GoogleAPIKey;
+        //url = "https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=" + NaverAPIID;
         Debug.Log(url);
         UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
         yield return www.SendWebRequest();
         Rect rect = new Rect(0, 0, ((DownloadHandlerTexture)www.downloadHandler).texture.width, ((DownloadHandlerTexture)www.downloadHandler).texture.height);
         SpriteRenderer img = gameObject.GetComponent<SpriteRenderer>();
         img.sprite = Sprite.Create(((DownloadHandlerTexture)www.downloadHandler).texture, rect, new Vector2(0.5f, 0.5f));
+        yield break;
         Placemove();
         mapcorutine = false;
         Resources.UnloadUnusedAssets();
+
+
     }
     private void Update()
     {
@@ -272,7 +282,7 @@ public class GPSTest : MonoBehaviour
         {
             player.transform.rotation = Quaternion.Euler(0, Input.compass.trueHeading, 0);
             c = Input.compass.trueHeading.ToString();
-            yield return new WaitForSecondsRealtime(1);
+            yield return null;
         }
     }
     //Start is called before the first frame update
@@ -296,7 +306,6 @@ public class GPSTest : MonoBehaviour
                 placeobject[i].transform.position = new Vector3((float)longi * 50000, 2, (float)latti * 50000);
                 Debug.Log("moving");
             }
-
         }
         else
         {

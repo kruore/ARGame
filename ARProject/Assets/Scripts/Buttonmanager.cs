@@ -77,11 +77,12 @@ public class Buttonmanager : Singleton<Buttonmanager>
         }
         else
         {
+            Debug.Log(GameObject.Find("UI Root/ErrorPanel").name.ToString());
             GameObject.Find("UI Root/ErrorPanel/Sprite/Label").GetComponent<UILabel>().text= "덱이 10장 미만이기 때문에 사용할 수 없습니다. ";
             GameObject.Find("UI Root/ErrorPanel").GetComponent<UIPanel>().enabled = true;
             GameObject.Find("UI Root/ErrorPanel").GetComponent<BoxCollider>().enabled = true;
         }
-        CPGameDataBase.inst.currentcpDBstate = cpDBState.Nomal;
+        CPGameDataBase.inst.currentcpDBstate = cpDBState.Deckmaking;
     }
     public void Elementlist()
     {

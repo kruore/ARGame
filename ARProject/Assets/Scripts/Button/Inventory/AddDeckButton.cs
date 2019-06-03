@@ -10,7 +10,7 @@ public class AddDeckButton : MonoBehaviour
     public void Deckinsert()
     {
         Item newcard = new Item(item.num, item.cost,  item.damage, item.ImgName, item.element,item.rank);
-        if (CPGameDataBase.inst.cpcards_Deck.Count < 10 && (CPGameDataBase.inst.deckcost + newcard.cardCost) < 30)
+        if (CPGameDataBase.inst.cpcards_Deck.Count < 10 && (CPGameDataBase.inst.deckcost + newcard.cardCost) < 31)
         {
             CPGameDataBase.inst.cpcards_Deck.Add(newcard);
             CPGameDataBase.inst.deckcost += newcard.cardCost;
