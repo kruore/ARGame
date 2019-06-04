@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Users/rnryt/OneDrive/바탕 화면/Capstonedesign/AR6.apk
+C:/Users/rnryt/OneDrive/바탕 화면/Capstonedesign/AR.apk
 SceneListBegin?
 Assets/Scenes/Main.unity
 Assets/Scenes/New Scene.unity

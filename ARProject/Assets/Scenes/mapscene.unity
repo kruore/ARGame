@@ -293,7 +293,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &521204902
 GameObject:
@@ -426,7 +426,7 @@ Transform:
   m_Children:
   - {fileID: 1577241889}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &525512942
 MonoBehaviour:
@@ -929,6 +929,12 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
+--- !u!1 &1296871894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1463866506994384, guid: 5aa69a6108fcee344b3d214a39724820,
+    type: 3}
+  m_PrefabInstance: {fileID: 2060682384}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1382420570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,7 +1079,7 @@ Transform:
   m_LocalScale: {x: 25, y: 25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1427273406
 SpriteRenderer:
@@ -1144,7 +1150,7 @@ MonoBehaviour:
   strPath: weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R
   GoogleAPIKey: AIzaSyBPENHUkpJHP24GDn98EaqW8qkZeO86pM0
   NaverAPIID: yjj47jszgj
-  player: {fileID: 0}
+  player: {fileID: 1296871894}
   placeobject: []
   count: 0
   latitude: 0
@@ -1276,7 +1282,7 @@ Transform:
   - {fileID: 1382420571}
   - {fileID: 1037073330}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1577241886
 GameObject:
@@ -1520,9 +1526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b2e6aefec5e74704b4141b4bd386864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LatLng:
-    _Lat: 40.6892199
-    _Lng: -74.044601
 --- !u!114 &1911804632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1535,107 +1538,6 @@ MonoBehaviour:
   m_Script: {fileID: -576295101, guid: 322c8874b7f0401c8c1211fe39d44d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ApiKey: 
-  VectorTileApiAddress: vectortile.googleapis.com
-  AdsImpressionsApiAddress: geoads.googleapis.com
-  CreateAdEventManager: 1
-  NetworkPoolSize: 100
-  NetworkTimeoutSeconds: 10
-  EnableDiagnostics: 1
-  _Events:
-    _ExtrudedStructureEvents:
-      WillCreate:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: Google.Maps.Event.WillCreateExtrudedStructureEvent, Google.Maps,
-          Version=1.0.7040.41994, Culture=neutral, PublicKeyToken=null
-      DidCreate:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: Google.Maps.Event.DidCreateExtrudedStructureEvent, Google.Maps,
-          Version=1.0.7040.41994, Culture=neutral, PublicKeyToken=null
-    _ModeledStructureEvents:
-      WillCreate:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: Google.Maps.Event.WillCreateModeledStructureEvent, Google.Maps,
-          Version=1.0.7040.41994, Culture=neutral, PublicKeyToken=null
-      DidCreate:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: Google.Maps.Event.DidCreateModeledStructureEvent, Google.Maps,
-          Version=1.0.7040.41994, Culture=neutral, PublicKeyToken=null
-    _SegmentEvents:
-      WillCreate:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: Google.Maps.Event.WillCreateSegmentEvent, Google.Maps, Version=1.0.7040.41994,
-          Culture=neutral, PublicKeyToken=null
-      DidCreate:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: Google.Maps.Event.DidCreateSegmentEvent, Google.Maps, Version=1.0.7040.41994,
-          Culture=neutral, PublicKeyToken=null
-    _RegionEvents:
-      WillCreate:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: Google.Maps.Event.WillCreateRegionEvent, Google.Maps, Version=1.0.7040.41994,
-          Culture=neutral, PublicKeyToken=null
-      DidCreate:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: Google.Maps.Event.DidCreateRegionEvent, Google.Maps, Version=1.0.7040.41994,
-          Culture=neutral, PublicKeyToken=null
-    _AreaWaterEvents:
-      WillCreate:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: Google.Maps.Event.WillCreateAreaWaterEvent, Google.Maps, Version=1.0.7040.41994,
-          Culture=neutral, PublicKeyToken=null
-      DidCreate:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: Google.Maps.Event.DidCreateAreaWaterEvent, Google.Maps, Version=1.0.7040.41994,
-          Culture=neutral, PublicKeyToken=null
-    _LineWaterEvents:
-      WillCreate:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: Google.Maps.Event.WillCreateLineWaterEvent, Google.Maps, Version=1.0.7040.41994,
-          Culture=neutral, PublicKeyToken=null
-      DidCreate:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: Google.Maps.Event.DidCreateLineWaterEvent, Google.Maps, Version=1.0.7040.41994,
-          Culture=neutral, PublicKeyToken=null
-    _MapEvents:
-      Loaded:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: Google.Maps.Event.MapLoadedEvent, Google.Maps, Version=1.0.7040.41994,
-          Culture=neutral, PublicKeyToken=null
-      LoadError:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: Google.Maps.Event.MapLoadErrorEvent, Google.Maps, Version=1.0.7040.41994,
-          Culture=neutral, PublicKeyToken=null
-      Progress:
-        m_PersistentCalls:
-          m_Calls: []
-        m_TypeName: Google.Maps.Event.MapLoadProgressEvent, Google.Maps, Version=1.0.7040.41994,
-          Culture=neutral, PublicKeyToken=null
-  EnableModeledStructures: 1
-  EnablePoliticalFeatures: 0
-  ObjectCreationFrameBudget: 0
-  StaticBatching: 0
-  ZoomLevel: 17
-  _CacheOptions:
-    BasePath: 
-    Directory: Google.Maps\SVT
-    MaxDiskBytes: 10485760
-    DiskTimeoutSeconds: 0
-  CountryProvider: {fileID: 0}
 --- !u!4 &1911804633
 Transform:
   m_ObjectHideFlags: 0
@@ -1714,7 +1616,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1997758035
 GameObject:
@@ -1985,7 +1887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4933676312928526, guid: 5aa69a6108fcee344b3d214a39724820, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4933676312928526, guid: 5aa69a6108fcee344b3d214a39724820, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

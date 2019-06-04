@@ -117,10 +117,10 @@ public class GPSTest : MonoBehaviour
         Input.compass.enabled = true;
         b = "0.5";
         c = "0";
-        StartCoroutine(StartcompassServiece());
         b = "0.6";
         gyro = Input.gyro;
         gyro.enabled = true;
+
         sCurrenttree = "44444444";
         nowposition = "";
         Latitude = Input.location.lastData.latitude;
@@ -148,6 +148,7 @@ public class GPSTest : MonoBehaviour
         Debug.Log(url);
         UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
         yield return www.SendWebRequest();
+        yield return new WaitForSeconds(1);
         Rect rect = new Rect(0, 0, ((DownloadHandlerTexture)www.downloadHandler).texture.width, ((DownloadHandlerTexture)www.downloadHandler).texture.height);
         SpriteRenderer img = gameObject.GetComponent<SpriteRenderer>();
         img.sprite = Sprite.Create(((DownloadHandlerTexture)www.downloadHandler).texture, rect, new Vector2(0.5f, 0.5f));
@@ -155,6 +156,7 @@ public class GPSTest : MonoBehaviour
         Placemove();
         b = "0.9";
         mapcorutine = false;
+        StartCoroutine(StartcompassServiece());
         Resources.UnloadUnusedAssets();
         b = "0.a";
     }
@@ -183,7 +185,6 @@ public class GPSTest : MonoBehaviour
         Rect rect = new Rect(0, 0, ((DownloadHandlerTexture)www.downloadHandler).texture.width, ((DownloadHandlerTexture)www.downloadHandler).texture.height);
         SpriteRenderer img = gameObject.GetComponent<SpriteRenderer>();
         img.sprite = Sprite.Create(((DownloadHandlerTexture)www.downloadHandler).texture, rect, new Vector2(0.5f, 0.5f));
-        yield break;
         Placemove();
         mapcorutine = false;
         Resources.UnloadUnusedAssets();

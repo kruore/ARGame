@@ -1001,6 +1001,7 @@
     <Compile Include="Assets\Scripts\IReuseCellData.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\ItemCellData.cs" />
+    <Compile Include="Assets\Scripts\LodingSceneManager.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\TestCell.cs" />
@@ -1066,10 +1067,6 @@
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
     <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver_v1.2.100.0.txt" />
     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
-    <None Include="Assets\SDKohaku-Chanz OPV\Readme.txt" />
-    <None Include="Assets\SDKohaku-Chanz OPV\Shader\Unitychan_chara_eye.shader" />
-    <None Include="Assets\SDKohaku-Chanz OPV\Shader\readme.txt" />
-    <None Include="Assets\SDUnity-chan_Adventure_Action_Pack\readme.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
