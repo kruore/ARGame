@@ -887,7 +887,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 1165201053}
-    mMethodName: bbbutonclick
+    mMethodName: gotoInventory
     mParameters: []
     oneShot: 0
 --- !u!65 &655461478
@@ -1020,7 +1020,7 @@ MonoBehaviour:
   pixelSnap: 0
   onClick:
   - mTarget: {fileID: 1165201053}
-    mMethodName: aabuttonclick
+    mMethodName: gotoMapscene
     mParameters: []
     oneShot: 0
 --- !u!65 &703471241

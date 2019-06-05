@@ -102,12 +102,12 @@ public class GPS : MonoBehaviour
         b = "0.1";
         Input.location.Start();
         b = "0.2";
-        while (Input.location.status == LocationServiceStatus.Initializing)
+        while (Input.location.status.Equals(LocationServiceStatus.Initializing))
         {
             yield return new WaitForSeconds(1f);
         }
         b = "0.3";
-        if (Input.location.status == LocationServiceStatus.Failed)
+        if (Input.location.status.Equals(LocationServiceStatus.Failed))
         {
             yield break;
         }
@@ -182,7 +182,7 @@ public class GPS : MonoBehaviour
     }
     private void Update()
     {
-        if (mapcorutine == false)
+        if (mapcorutine.Equals(false))
         {
             Latitude = Input.location.lastData.latitude;
             Longitude = Input.location.lastData.longitude;
@@ -254,7 +254,7 @@ public class GPS : MonoBehaviour
                     break;
             }
         }
-        else if (nowposition.Length == 8)
+        else if (nowposition.Length.Equals(8))
         {
             sCurrenttree = nowposition;
             return true;

@@ -91,7 +91,7 @@ public class GameDataBase : Singleton<GameDataBase>
         //    }
         //}
         string conn = string.Empty;
-        if (Application.platform == RuntimePlatform.Android)
+        if (Application.platform.Equals(RuntimePlatform.Android))
         {
 
             conn = Application.persistentDataPath + "/" + DBName + ".sqlite";

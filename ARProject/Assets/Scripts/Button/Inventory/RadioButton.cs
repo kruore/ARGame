@@ -12,12 +12,12 @@ public class RadioButton : MonoBehaviour
     }
     public void Elementlist()
     {
-        CPGameDataBase.inst.testScrollView.EV_UpdateAll();
+        InventorysceneManager.inst.testScrollView.EV_UpdateAll();
         EventDelegate.Execute(RadioButtonImage);
     }
     public void ButtonBGIChange()
     {
-        if (gameObject.CompareTag(CPGameDataBase.inst.element.ToString()))
+        if (gameObject.CompareTag(InventorysceneManager.inst.element.ToString()))
         {
             GetComponentInChildren<UISprite>().spriteName = "List_On";
 

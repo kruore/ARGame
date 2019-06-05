@@ -6,15 +6,17 @@ public enum cpDBState
 {
     None, Nomal, Deckmaking, Multiselect, Deactivecard
 }
-public class CPGameDataBase : MonoBehaviour
+public class InventorysceneManager : MonoBehaviour
 {
-    public static CPGameDataBase inst;
+    public static InventorysceneManager inst;
     public GUITestScrollView testScrollView;
     public UILabel CostLabel;
     public List<Item> cpcards_Deck = new List<Item>();
     public List<Item> cpcards_Inventory = new List<Item>();
     public List<int> DestoryItem = new List<int>();
     public List<Item> cpcards = new List<Item>();
+    public GameObject InventoryLobby, Inventory, CardList, Cardinfo, canclecontract, carddismantiingbutton;
+    public GUITestScrollView InventoryView, CardListView;
     int m_deckcost;
     public cpDBState m_currentcpDBstate;
     public cpDBState currentcpDBstate
@@ -117,4 +119,52 @@ public class CPGameDataBase : MonoBehaviour
         cpcards = GameDataBase.Inst.cards;
         deckcost = GameDataBase.Inst.deckcost;
     }
+    #region button
+    public void gotoMainScene()
+    {
+        Buttonmanager.Inst.SceneStackPop();
+        Buttonmanager.Inst.gotoMainscene();
+    }
+    public void Activeinventory()
+    {
+        Buttonmanager.Inst.ActiveInventorypanel();
+    }
+    public void ActiveCardpanel()
+    {
+        Buttonmanager.Inst.ActivecCardListpanel();
+    }
+    public void DeactiveInventorypanel()
+    {
+        Buttonmanager.Inst.SceneStackPop();
+        Buttonmanager.Inst.DeactiveInventorypanel();
+    }
+    public void DeactiveCardListpanel()
+    {
+        Buttonmanager.Inst.SceneStackPop();
+        Buttonmanager.Inst.DeactiveCardListpanel();
+    }
+    public void CPcardMultSelect()
+    {
+        Buttonmanager.Inst.CPcardMultSelect();
+    }
+    public void AllcardInvisible()
+    {
+        Buttonmanager.Inst.AllcardInvisible();
+    }
+    public void Activecanclecontract()
+    {
+        InventorysceneManager.inst.canclecontract.SetActive(true);
+    }
+    public void CardDismantiling()
+    {
+        Buttonmanager.Inst.SceneStackPop();
+        Buttonmanager.Inst.CardDismantiling();
+        InventorysceneManager.inst.canclecontract.SetActive(false);
+    }
+    public void CardDismantiingcancle()
+    {
+        Buttonmanager.Inst.SceneStackPop();
+        InventorysceneManager.inst.canclecontract.SetActive(false);
+    }
+    #endregion
 }

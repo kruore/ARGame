@@ -6,6 +6,6 @@ public class UnrecordedCard : MonoBehaviour
 {
     public void UnrecordedCardButton()
     {
-        CPGameDataBase.inst.currentcpDBstate = cpDBState.Deactivecard;
+        InventorysceneManager.inst.currentcpDBstate = cpDBState.Deactivecard;
     }
 }

@@ -62,6 +62,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ConsolePro\ConsoleProDebug.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\ConsoleProRemoteServer.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\FastBitConverter.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\INetEventListener.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NatPunchModule.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetConstants.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetDataReader.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetDataWriter.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetDebug.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetEndPoint.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetManager.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetPacket.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetPacketPool.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetPeer.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetPeerCollection.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetSerializer.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetSocket.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetThread.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NetUtils.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\NtpSyncModule.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\ReliableChannel.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\SequencedChannel.cs" />
+    <Compile Include="Assets\ConsolePro\Remote\LiteNetLib\SimpleChannel.cs" />
     <Compile Include="Assets\GoogleARCore\Examples\AugmentedFaces\Scripts\ARCoreAugmentedFaceMeshFilter.cs" />
     <Compile Include="Assets\GoogleARCore\Examples\AugmentedFaces\Scripts\ARCoreAugmentedFaceRig.cs" />
     <Compile Include="Assets\GoogleARCore\Examples\AugmentedFaces\Scripts\AugmentedFacesExampleController.cs" />
@@ -393,6 +416,7 @@
     <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
     <Compile Include="Assets\Scripts\Adventure\Collectingobject.cs" />
     <Compile Include="Assets\Scripts\AR\Objectrotate.cs" />
+    <Compile Include="Assets\Scripts\Button\Buttonmanager.cs" />
     <Compile Include="Assets\Scripts\Button\Inventory\AddDeckButton.cs" />
     <Compile Include="Assets\Scripts\Button\Inventory\AllcardInvisible.cs" />
     <Compile Include="Assets\Scripts\Button\Inventory\CardDismantiling.cs" />
@@ -402,10 +426,8 @@
     <Compile Include="Assets\Scripts\Button\Inventory\ScrollViewChange.cs" />
     <Compile Include="Assets\Scripts\Button\Inventory\UnrecordedCard.cs" />
     <Compile Include="Assets\Scripts\Button\Public\SetActiveObject.cs" />
-    <Compile Include="Assets\Scripts\Buttonmanager.cs" />
     <Compile Include="Assets\Scripts\cameralook.cs" />
     <Compile Include="Assets\Scripts\Cardcheck.cs" />
-    <Compile Include="Assets\Scripts\CPGameDataBase.cs" />
     <Compile Include="Assets\Scripts\DeckImage.cs" />
     <Compile Include="Assets\Scripts\DeleteDeck.cs" />
     <Compile Include="Assets\Scripts\GameDataBase.cs" />
@@ -414,10 +436,12 @@
     <Compile Include="Assets\Scripts\GpsData.cs" />
     <Compile Include="Assets\Scripts\GPSTest.cs" />
     <Compile Include="Assets\Scripts\GUITestScrollView.cs" />
+    <Compile Include="Assets\Scripts\InventorysceneManager.cs" />
     <Compile Include="Assets\Scripts\IReuseCellData.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\ItemCellData.cs" />
     <Compile Include="Assets\Scripts\LodingSceneManager.cs" />
+    <Compile Include="Assets\Scripts\MapsceneManager.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\TestCell.cs" />

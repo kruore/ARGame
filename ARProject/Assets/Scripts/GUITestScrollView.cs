@@ -21,7 +21,7 @@ public class GUITestScrollView : MonoBehaviour
     void Awake()
     {
 		grid = GetComponentInChildren<UIReuseGrid>();
-        if(grid==null)
+        if(grid.Equals(null))
         {
             Debug.Log("grid == null");
         }
@@ -30,7 +30,7 @@ public class GUITestScrollView : MonoBehaviour
 
 	void Start () 
     {
-        items = CPGameDataBase.inst.GetComponent<CPGameDataBase>().cpcards_Inventory;
+        items = InventorysceneManager.inst.GetComponent<InventorysceneManager>().cpcards_Inventory;
         inventory = GameDataBase.Instance.cards_Inventory;
         count = inventory.Count;
         // 임의의 데이터가 생성해서 gird에 추가시켜둔다.
@@ -62,37 +62,37 @@ public class GUITestScrollView : MonoBehaviour
         categoryinventory.Clear();
         if (UIButton.current.gameObject.CompareTag("Untagged"))
         {
-            //CPGameDataBase.inst.element = Element.None;
+            //InventorysceneManager.inst.element = Element.None;
         }
         else if (UIButton.current.gameObject.CompareTag("Wood"))
         {
-            CPGameDataBase.inst.element = Element.Wood;
+            InventorysceneManager.inst.element = Element.Wood;
         }
         else if (UIButton.current.gameObject.CompareTag("Stone"))
         {
-            CPGameDataBase.inst.element = Element.Stone;
+            InventorysceneManager.inst.element = Element.Stone;
         }
         else if (UIButton.current.gameObject.CompareTag("Grass"))
         {
-            CPGameDataBase.inst.element = Element.Grass;
+            InventorysceneManager.inst.element = Element.Grass;
         }
         else if (UIButton.current.gameObject.CompareTag("Chaos"))
         {
-            CPGameDataBase.inst.element = Element.Chaos;
+            InventorysceneManager.inst.element = Element.Chaos;
         }
         else if (UIButton.current.gameObject.CompareTag("None"))
         {
-            CPGameDataBase.inst.element = Element.None;
+            InventorysceneManager.inst.element = Element.None;
         }
-        if (CPGameDataBase.inst.currentcpDBstate == cpDBState.Deactivecard)
+        if (InventorysceneManager.inst.currentcpDBstate.Equals(cpDBState.Deactivecard))
         {
             foreach (Item card in GameDataBase.Inst.cards)
             {
-                if (CPGameDataBase.inst.element == Element.None)
+                if (InventorysceneManager.inst.element.Equals(Element.None))
                 {
                     categoryinventory.Add(card);
                 }
-                else if (card.cardElement == CPGameDataBase.inst.element)
+                else if (card.cardElement.Equals(InventorysceneManager.inst.element))
                 {
                     categoryinventory.Add(card);
                 }
@@ -101,19 +101,19 @@ public class GUITestScrollView : MonoBehaviour
         }
         else
         {
-            foreach (Item card in CPGameDataBase.inst.cpcards_Inventory)
+            foreach (Item card in InventorysceneManager.inst.cpcards_Inventory)
             {
-                if (CPGameDataBase.inst.element == Element.None)
+                if (InventorysceneManager.inst.element.Equals(Element.None))
                 {
                     categoryinventory.Add(card);
                 }
-                else if (card.cardElement == CPGameDataBase.inst.element)
+                else if (card.cardElement.Equals(InventorysceneManager.inst.element))
                 {
                     categoryinventory.Add(card);
                 }
             }
         }
-        CPGameDataBase.inst.testScrollView.items = categoryinventory;
+        InventorysceneManager.inst.testScrollView.items = categoryinventory;
         grid.ClearItem(true);
         inventory = items;
         count = inventory.Count;

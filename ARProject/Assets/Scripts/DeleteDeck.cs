@@ -10,19 +10,19 @@ public class DeleteDeck : MonoBehaviour
 
     public void Deckremove()
     {
-        if (CPGameDataBase.inst.currentcpDBstate == cpDBState.Deckmaking)
+        if (InventorysceneManager.inst.currentcpDBstate.Equals(cpDBState.Deckmaking))
         {
             int decknum = GetComponent<DeckImage>().slotnumber;
-            if (decknum < CPGameDataBase.inst.cpcards_Deck.Count)
+            if (decknum < InventorysceneManager.inst.cpcards_Deck.Count)
             {
-                CPGameDataBase.inst.cpcards_Inventory.Add(CPGameDataBase.inst.cpcards_Deck[decknum]);
-                CPGameDataBase.inst.cpcards_Inventory.Sort(delegate (Item a, Item b)//인벤토리 정렬 cost 낮은순
+                InventorysceneManager.inst.cpcards_Inventory.Add(InventorysceneManager.inst.cpcards_Deck[decknum]);
+                InventorysceneManager.inst.cpcards_Inventory.Sort(delegate (Item a, Item b)//인벤토리 정렬 cost 낮은순
                 {
                     if (a.cardCost > b.cardCost)
                     {
                         return 1;
                     }
-                    else if (a.cardCost == b.cardCost)
+                    else if (a.cardCost.Equals(b.cardCost))
                     {
                         return a.cardName.CompareTo(b.cardName);
                     }
@@ -32,12 +32,12 @@ public class DeleteDeck : MonoBehaviour
                     }
 
                 });
-                for (int i = 0; i < CPGameDataBase.inst.cpcards_Inventory.Count; i++)//인벤토리 넘버 수정
+                for (int i = 0; i < InventorysceneManager.inst.cpcards_Inventory.Count; i++)//인벤토리 넘버 수정
                 {
-                    CPGameDataBase.inst.cpcards_Inventory[i].cardInventoryNum = i;
+                    InventorysceneManager.inst.cpcards_Inventory[i].cardInventoryNum = i;
                 }
-                CPGameDataBase.inst.deckcost -= CPGameDataBase.inst.cpcards_Deck[decknum].cardCost;
-                CPGameDataBase.inst.cpcards_Deck.RemoveAt(decknum);
+                InventorysceneManager.inst.deckcost -= InventorysceneManager.inst.cpcards_Deck[decknum].cardCost;
+                InventorysceneManager.inst.cpcards_Deck.RemoveAt(decknum);
 
                 EventDelegate.Execute(eventdel);
                 scrollview.EV_UpdateAll();

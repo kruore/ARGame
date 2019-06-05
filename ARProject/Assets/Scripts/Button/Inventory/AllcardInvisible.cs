@@ -6,13 +6,13 @@ public class AllcardInvisible : MonoBehaviour
 {
     public void Allcard()
     {
-        if (CPGameDataBase.inst.currentcpDBstate == cpDBState.Deactivecard)
+        if (InventorysceneManager.inst.currentcpDBstate.Equals(cpDBState.Deactivecard))
         {
-            CPGameDataBase.inst.currentcpDBstate = cpDBState.Deckmaking;
+            InventorysceneManager.inst.currentcpDBstate = cpDBState.Deckmaking;
         }
         else
         {
-            CPGameDataBase.inst.currentcpDBstate = cpDBState.Deactivecard;
+            InventorysceneManager.inst.currentcpDBstate = cpDBState.Deactivecard;
         }
         
     }

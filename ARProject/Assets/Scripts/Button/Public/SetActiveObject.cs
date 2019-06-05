@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SetActiveObject : MonoBehaviour
 {
-    public  List<GameObject> activeObject;
+    public List<GameObject> activeObject;
     public List<GameObject> deactiveObject;
 
     public void ObjectControl()
     {
-        foreach(GameObject obj in activeObject)
+        foreach (GameObject obj in activeObject)
         {
             obj.SetActive(true);
         }

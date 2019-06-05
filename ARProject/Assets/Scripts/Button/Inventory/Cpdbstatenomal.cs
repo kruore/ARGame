@@ -6,6 +6,6 @@ public class Cpdbstatenomal : MonoBehaviour
 {
     public void cpdbstateNomal()
     {
-        CPGameDataBase.inst.currentcpDBstate = cpDBState.Nomal;
+        InventorysceneManager.inst.currentcpDBstate = cpDBState.Nomal;
     }
 }

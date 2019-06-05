@@ -14,7 +14,7 @@ public class Cardcheck : MonoBehaviour
     }
     public void CardCheck()
     {
-        switch (CPGameDataBase.inst.currentcpDBstate)
+        switch (InventorysceneManager.inst.currentcpDBstate)
         {
             case cpDBState.Nomal:
                 GameObject cardinfo = GameObject.Find("UI Root/CardListPanel/Cardinfo");
@@ -22,19 +22,19 @@ public class Cardcheck : MonoBehaviour
                 cardinfo.GetComponentInChildren<UISprite>();
                 break;
             case cpDBState.Multiselect:
-                if (CPGameDataBase.inst.DestoryItem.Count < 8)
+                if (InventorysceneManager.inst.DestoryItem.Count < 8)
                 {
                     objectcheck = !objectcheck;
                     gameObject.GetComponent<TestCell>().citem.check=objectcheck;
                     if (objectcheck)
                     {
                         gameobjectsprite.alpha = 1f;
-                        CPGameDataBase.inst.DestoryItem.Remove(gameObject.GetComponent<TestCell>().citem.num);
+                        InventorysceneManager.inst.DestoryItem.Remove(gameObject.GetComponent<TestCell>().citem.num);
                     }
                     else
                     {
                         gameobjectsprite.alpha = 0.5f;
-                        CPGameDataBase.inst.DestoryItem.Add(gameObject.GetComponent<TestCell>().citem.num);
+                        InventorysceneManager.inst.DestoryItem.Add(gameObject.GetComponent<TestCell>().citem.num);
                     }
                 }
                 break;

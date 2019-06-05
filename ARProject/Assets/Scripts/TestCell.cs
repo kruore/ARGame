@@ -19,7 +19,6 @@ public class TestCell : UIReuseScrollViewCell
     }
     public override void UpdateData(IReuseCellData CellData)
     {
-        Debug.Log(CellData.num);
         citem.num = CellData.num;
         citem.ImgName = CellData.ImgName;
         citem.cost = CellData.cost;
@@ -32,13 +31,13 @@ public class TestCell : UIReuseScrollViewCell
         element = CellData.element;
         damage = CellData.damage;
         rank = CellData.rank;
-        if (citem == null)
+        if (citem.Equals(null))
             return;
-        if (CPGameDataBase.inst.currentcpDBstate == cpDBState.Deactivecard)
+        if (InventorysceneManager.inst.currentcpDBstate.Equals(cpDBState.Deactivecard))
         {
             foreach (Item item in GameDataBase.Inst.cards_Inventory)
             {
-                if (item.cardName == CellData.ImgName)
+                if (item.cardName.Equals(CellData.ImgName))
                 {
                     citem.check = false;
                     check = citem.check;
@@ -48,7 +47,7 @@ public class TestCell : UIReuseScrollViewCell
                 {
                     foreach (Item item0 in GameDataBase.Inst.cards_Deck)
                     {
-                        if (item0.cardName == CellData.ImgName)
+                        if (item0.cardName.Equals(CellData.ImgName))
                         {
                             citem.check = false;
                             check = citem.check;
@@ -63,13 +62,13 @@ public class TestCell : UIReuseScrollViewCell
                 }
             }
         }
-        if (CPGameDataBase.inst.currentcpDBstate == cpDBState.Multiselect)
+        if (InventorysceneManager.inst.currentcpDBstate.Equals(cpDBState.Multiselect))
         {
-            if(CPGameDataBase.inst.DestoryItem.Count>0)
+            if(InventorysceneManager.inst.DestoryItem.Count>0)
             {
-                foreach (int item in CPGameDataBase.inst.DestoryItem)
+                foreach (int item in InventorysceneManager.inst.DestoryItem)
                 {
-                    if (item == citem.num)
+                    if (item.Equals(citem.num))
                     {
                         citem.check = true;
                         check = citem.check;
@@ -91,12 +90,12 @@ public class TestCell : UIReuseScrollViewCell
         }
         label.text = string.Format("{0} {1}", citem.ImgName, citem.Index);
         sprite.spriteName = citem.ImgName;
-        if (citem.check == true && CPGameDataBase.inst.currentcpDBstate == cpDBState.Deactivecard)
+        if (citem.check.Equals(true) && InventorysceneManager.inst.currentcpDBstate.Equals(cpDBState.Deactivecard))
         {
             GetComponentInChildren<UISprite>().color = new Color(0.52f, 0.52f, 0.52f);
 
         }
-        else if(citem.check == true && CPGameDataBase.inst.currentcpDBstate == cpDBState.Multiselect)
+        else if(citem.check.Equals(true) && InventorysceneManager.inst.currentcpDBstate.Equals(cpDBState.Multiselect))
         {
             GetComponentInChildren<UISprite>().alpha = 0.5f;
         }

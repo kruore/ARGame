@@ -475,6 +475,9 @@
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>D:/TabTabCreate/ARGame/ARProject/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
+    <Reference Include="ConsolePro.Editor">
+      <HintPath>D:/TabTabCreate/ARGame/ARProject/Assets/ConsolePro/Editor/ConsolePro.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
     </Reference>

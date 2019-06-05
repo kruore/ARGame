@@ -7,9 +7,9 @@ public class ScrollViewChange : MonoBehaviour
     public GUITestScrollView scrollview;
    public void ChangeScrolllView()
     {
-        CPGameDataBase.inst.CpReSet();
+        InventorysceneManager.inst.CpReSet();
         EventDelegate.Execute(DeleteDeck.eventdel);
-        CPGameDataBase.inst.testScrollView = scrollview;
-        CPGameDataBase.inst.currentcpDBstate = cpDBState.Deckmaking;
+        InventorysceneManager.inst.testScrollView = scrollview;
+        InventorysceneManager.inst.currentcpDBstate = cpDBState.Deckmaking;
     }
 }

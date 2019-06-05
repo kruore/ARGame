@@ -10,11 +10,11 @@ public class DeckImage : MonoBehaviour
     void Start()
     {
         EventDelegate.Add(DeleteDeck.eventdel, DeckReImage);//이벤트 델리게이트에 덱이미지를 재조정하는 함수추가
-        if (CPGameDataBase.inst.cpcards_Deck.Count>slotnumber)
+        if (InventorysceneManager.inst.cpcards_Deck.Count>slotnumber)
         {
             sprite = GetComponent<UISprite>();
-             sprite.spriteName= CPGameDataBase.inst.cpcards_Deck[slotnumber].cardName;
-            GetComponent<UIButton>().normalSprite = CPGameDataBase.inst.cpcards_Deck[slotnumber].cardName;
+             sprite.spriteName= InventorysceneManager.inst.cpcards_Deck[slotnumber].cardName;
+            GetComponent<UIButton>().normalSprite = InventorysceneManager.inst.cpcards_Deck[slotnumber].cardName;
             
         }
         else
@@ -26,12 +26,12 @@ public class DeckImage : MonoBehaviour
     }
     public void DeckReImage()
     {
-        if (CPGameDataBase.inst.cpcards_Deck.Count > slotnumber)
+        if (InventorysceneManager.inst.cpcards_Deck.Count > slotnumber)
         {
             
             sprite = GetComponent<UISprite>();
-            sprite.spriteName = CPGameDataBase.inst.cpcards_Deck[slotnumber].cardName;
-            GetComponent<UIButton>().normalSprite = CPGameDataBase.inst.cpcards_Deck[slotnumber].cardName;
+            sprite.spriteName = InventorysceneManager.inst.cpcards_Deck[slotnumber].cardName;
+            GetComponent<UIButton>().normalSprite = InventorysceneManager.inst.cpcards_Deck[slotnumber].cardName;
         }
         else
         {
