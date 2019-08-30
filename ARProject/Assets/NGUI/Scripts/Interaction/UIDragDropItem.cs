@@ -28,7 +28,6 @@ public class UIDragDropItem : MonoBehaviour
 	[Tooltip("By default, dragging only happens while holding the mouse button / touch. If desired, you can opt to use a click-based approach instead. Note that this only works with a mouse.")]
 	public bool clickToDrag = false;
 
-    public CardForm cardform;
 	[Tooltip("Whether a copy of the item will be dragged instead of the item itself.")]
 	public bool cloneOnDrag = false;
 
@@ -378,9 +377,8 @@ public class UIDragDropItem : MonoBehaviour
 	{
 		if (!cloneOnDrag)
 		{
-                      
-            // Clear the reference to the scroll view since it might be in another scroll view now
-            var drags = GetComponentsInChildren<UIDragScrollView>();
+			// Clear the reference to the scroll view since it might be in another scroll view now
+			var drags = GetComponentsInChildren<UIDragScrollView>();
 			foreach (var d in drags) d.scrollView = null;
 
 			// Re-enable the collider
@@ -420,8 +418,11 @@ public class UIDragDropItem : MonoBehaviour
 			if (mTable != null) mTable.repositionNow = true;
 			if (mGrid != null) mGrid.repositionNow = true;
 		}
-        // We're now done
-        if (cloneOnDrag) DestroySelf();
+
+		// We're now done
+		OnDragDropEnd(surface);
+
+		if (cloneOnDrag) DestroySelf();
 	}
 
 	/// <summary>

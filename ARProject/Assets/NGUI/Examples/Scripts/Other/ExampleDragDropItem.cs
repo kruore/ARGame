@@ -13,6 +13,7 @@ public class ExampleDragDropItem : UIDragDropItem
 	/// </summary>
 
 	public GameObject prefab;
+
 	/// <summary>
 	/// Drop a 3D game object onto the surface.
 	/// </summary>
@@ -25,25 +26,22 @@ public class ExampleDragDropItem : UIDragDropItem
 
 			if (dds != null)
 			{
-                cardform = surface.GetComponent<CardForm>();
-                GameObject child = NGUITools.AddChild(dds.gameObject, prefab);
+				GameObject child = NGUITools.AddChild(dds.gameObject, prefab);
 				child.transform.localScale = dds.transform.localScale;
 
 				Transform trans = child.transform;
 				trans.position = UICamera.lastWorldPosition;
 
-                if (dds.rotatePlacedObject)
+				if (dds.rotatePlacedObject)
 				{
 					trans.rotation = Quaternion.LookRotation(UICamera.lastHit.normal) * Quaternion.Euler(90f, 0f, 0f);
-                    OnDragDropEnd(surface);
-                    cardform.CardUnitCareater();
-                }
-                // Destroy this icon as it's no longer needed
-                NGUITools.Destroy(gameObject);
-                
-                return;
+				}
+				
+				// Destroy this icon as it's no longer needed
+				NGUITools.Destroy(gameObject);
+				return;
 			}
 		}
 		base.OnDragDropRelease(surface);
-    }
+	}
 }

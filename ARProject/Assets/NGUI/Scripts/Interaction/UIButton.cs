@@ -214,7 +214,9 @@ public class UIButton : UIButtonColor
 			if (mInitDone) OnHover(UICamera.hoveredObject == gameObject);
 		}
 		else SetState(State.Disabled, true);
+        tweenTarget = null;
 	}
+    
 
 	/// <summary>
 	/// Drag over state logic is a bit different for the button.
@@ -242,6 +244,7 @@ public class UIButton : UIButtonColor
 
 	protected virtual void OnClick ()
 	{
+        SoundManager.Inst.Ds_PlaySingle(Resources.Load<AudioClip>("click"));
 		if (current == null && isEnabled && UICamera.currentTouchID != -2 && UICamera.currentTouchID != -3)
 		{
 			current = this;

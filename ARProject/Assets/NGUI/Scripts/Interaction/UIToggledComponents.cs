@@ -17,7 +17,6 @@ public class UIToggledComponents : MonoBehaviour
 {
 	public List<MonoBehaviour> activate;
 	public List<MonoBehaviour> deactivate;
-
 	// Deprecated functionality
 	[HideInInspector][SerializeField] MonoBehaviour target;
 	[HideInInspector][SerializeField] bool inverse = false;
@@ -48,19 +47,23 @@ public class UIToggledComponents : MonoBehaviour
 
 	public void Toggle ()
 	{
-		if (enabled)
+        UIToggle current = UIToggle.current;
+        Debug.Log(current.value.ToString());
+        if (enabled)
 		{
 			for (int i = 0; i < activate.Count; ++i)
 			{
 				MonoBehaviour comp = activate[i];
-				comp.enabled = UIToggle.current.value;
+                NGUITools.SetActive(comp.gameObject, current.value);
+                comp.enabled = current.value;
 			}
 
 			for (int i = 0; i < deactivate.Count; ++i)
 			{
 				MonoBehaviour comp = deactivate[i];
-				comp.enabled = !UIToggle.current.value;
-			}
+                NGUITools.SetActive(comp.gameObject, !current.value);
+                comp.enabled = !current.value;
+            }
 		}
 	}
 }
